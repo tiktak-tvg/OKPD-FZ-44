@@ -562,10 +562,21 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 ```
 После инсталляции в консоли будет предложено сделать TXT запись.
 
+![image](https://github.com/user-attachments/assets/ef1879c9-ed84-4291-a4a5-8ceb5bdb243e)
+
 
 ### 4. Настройка почтового сервера Р7.
 
+Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
+```bash
+https:/admin/it.company.lan
+```
+![image](https://github.com/user-attachments/assets/d0b2d655-32fa-4980-b66e-7e1a45a3ef53)
+
+
+
 В настройках КС24 указать корректные порты ПС.
+
 Pop3 - 995 None, imap - 993 , smtp - 465
 
 
