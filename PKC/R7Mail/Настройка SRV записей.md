@@ -1,5 +1,4 @@
-![image](https://github.com/user-attachments/assets/12fb8057-eb57-4fa8-9532-3023e0b9911b)
-
+![image](https://github.com/user-attachments/assets/f50eada9-4fd0-49b9-932b-0758da912a42)
 
 Настройка SRV-записей для почтового сервера помогает клиентам автоматически находить сервисы (SMTP, IMAP и т.д.) через DNS. Вот пошаговая инструкция:
 
@@ -101,7 +100,8 @@ SPF-запись v=spf1 +mx ~all разрешит отправку писем т
 
 Если всё настроили среяйте с этими настройками.
 
-![image](https://github.com/user-attachments/assets/3d6c0ae4-5442-434c-a7fd-8c3afbc9fc0b)
+![image](https://github.com/user-attachments/assets/b5879541-2b67-4e66-9a13-ff081426bbf8)
 
-![image](https://github.com/user-attachments/assets/445bb0a3-0eea-4386-9f37-f614a46ebe55)
+![image](https://github.com/user-attachments/assets/860e925f-a5c0-49e4-88fb-d4044db46a81)
+
 
