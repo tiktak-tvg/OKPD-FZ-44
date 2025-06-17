@@ -585,9 +585,47 @@ https:/admin/it.company.lan
 
 В настройках КС24 указать корректные порты ПС.
 
-- **Pop сервер** - 995 None 
-- **Imap сервер** - 993 SslOnConnect 
-- **Smtp сервер** - 465 SslOnConnect
+- **POP сервер** - 995  Тип соединения: None 
+- **IMAP сервер** - 993 Тип соединения: SslOnConnect 
+- **SMTP сервер** - 465 Тип соединения: SslOnConnect
+
+Создать почтового пользователя и проверить работу почты.
+
+Переходим во вкладку  ![image](https://github.com/user-attachments/assets/a143ef65-fa75-4438-9fd0-d4f45d8cd2c1) `Почта`
+
+![image](https://github.com/user-attachments/assets/1ce65e48-068a-471d-a724-6c3266f85821)
+
+![image](https://github.com/user-attachments/assets/5203e6d2-24e7-4a86-aea3-332a9265bd3c)
+
+![image](https://github.com/user-attachments/assets/ddefa756-6816-451e-aaab-c93a34ddc059)
+
+![image](https://github.com/user-attachments/assets/1e1f79e4-3b5b-4429-9efe-833154cdc8b1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
