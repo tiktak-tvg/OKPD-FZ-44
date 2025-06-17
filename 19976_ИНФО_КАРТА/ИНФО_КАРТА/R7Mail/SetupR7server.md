@@ -573,11 +573,21 @@ https:/admin/it.company.lan
 ```
 ![image](https://github.com/user-attachments/assets/d0b2d655-32fa-4980-b66e-7e1a45a3ef53)
 
+![image](https://github.com/user-attachments/assets/033f68e7-afb0-4b50-a156-fa537faa8e2a)
 
+Теперь заходимим в настройки почтововго сервера.
+
+![image](https://github.com/user-attachments/assets/c3b48161-f9de-4e8b-9b76-e241ced3ed70)
+
+![image](https://github.com/user-attachments/assets/96f36de7-533e-4f55-b646-efb705fbee3d)
+
+![image](https://github.com/user-attachments/assets/75b522e4-b430-4aa3-b333-0b4c35eeec54)
 
 В настройках КС24 указать корректные порты ПС.
 
-Pop3 - 995 None, imap - 993 , smtp - 465
+- **Pop сервер** - 995 None 
+- **Imap сервер** - 993 SslOnConnect 
+- **Smtp сервер** - 465 SslOnConnect
 
 
 
