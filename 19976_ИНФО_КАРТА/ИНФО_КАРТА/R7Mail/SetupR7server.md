@@ -502,7 +502,14 @@ coremachinkey от CS
 
 ---
 
-![image](https://github.com/user-attachments/assets/f4e3c2b9-0d31-4861-8753-33b1551bb8c9)
+![image](https://github.com/user-attachments/assets/609df310-f84f-45ce-ae68-dd27454c3a5d)
+
+Выберите базу данных для установки.
+
+---
+
+![image](https://github.com/user-attachments/assets/9a690a18-2476-4aa7-b307-453becec49da)
+
 
 В данном окне надо внести имя вашего MX почтового сервера, который прописан в записи А на контроллере домена. 
 
