@@ -266,7 +266,7 @@ update-ca-certificates --fresh
 ![image](https://github.com/user-attachments/assets/9d33ea5b-6500-42c0-9f81-555bf97aadd1)
 
 
-#### Далее переходим к скрипту запуска установки КС.
+### 2. Установка Корпоративного сервера 2024 offline-версии.
 ```bash
 из папки в которой создали сертификаты /mnt/CDDiskPack/CDinstall_Astra_1.7.4/sslcert/#
 переходим 
