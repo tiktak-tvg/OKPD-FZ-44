@@ -515,15 +515,11 @@ coremachinkey от CS
 
 В моём случае запись А в DNS такая ``A  r7mx1.it.company.lan  TTL``
 
-Введите MX запись
-
-Укажите имя MX записи, которая сделана или будет сделана в DNS, без домена
-
-Если MX запись выглядит, как r7mx1.it.company.lan, то ввести необходимо просто **r7mx1**
+Если MX запись выглядит, как r7mx1.it.company.lan, то ввести необходимо просто hostname почтового сервера **r7mx1**
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/afb16678-0b41-4330-94e4-83f0c0f61b1b)
+![image](https://github.com/user-attachments/assets/75998f41-5961-4fe5-ae77-b3eaa6f90573)
 
 Укажите ip адрес
 
