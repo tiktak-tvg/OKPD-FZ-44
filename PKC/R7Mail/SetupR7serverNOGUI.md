@@ -125,6 +125,8 @@ chmod +x install.sh
 
 ![image](https://github.com/user-attachments/assets/725be3cb-fe20-4b09-9aac-a2fcc16c3763)
 
+### 2. Установка необходимых служб и баз данных для почтового сервера 2024 offline-версии
+
 Теперь запускаем установку
 
 ```bash
@@ -133,15 +135,233 @@ chmod +x offline-installer.sh
 ./offline-installer.sh
 ```
 
+![image](https://github.com/user-attachments/assets/a3f7c38e-fc38-46b6-94fe-16cac330c3fb)
 
+<hr>
 
+![image](https://github.com/user-attachments/assets/4fd55bad-acb9-49ce-9985-ac0f43881b55)
 
+Чистая установка
 
+Если требуется выполнить чистую установку (удалит имеющуюся инсталляцию Корпоративный сервер 2024 и зависимости):
 
+Выберите Да
 
+<hr>
 
+![image](https://github.com/user-attachments/assets/df64e74e-0c34-44ac-b978-a05e56fc5651)
+ 
+Установка СУБД на локальную ВМ
 
+Для установки PostgreSQL (при инсталляции всё в одном) на локальный компьютер:
 
+Выберите Да
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/1f24f651-b632-41cd-a803-e88a3d79db7c)
+
+Установка Сервера Документов
+
+Для его установки: Выберите Да
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/551af633-bb6e-45c1-88cb-516a0f4067bd)
+
+Необходимо ввести пароль-секрет для защищённого доступа между Корпоративный сервер 2024 и Сервером Документов.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/ca77e6dc-0bb6-4bc0-99b5-33879d15d8f5)
+
+Пароль для Базы Данных DS
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/961ab686-f66b-449e-bee2-fa8d581b6e58)
+
+Установка api и web диска
+
+Для его установки: Выберите Да
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/2851b0be-5601-41a8-9546-660536d10d7a)
+
+Тип СУБД Корпоративный сервер 2024
+
+Выберите PostgreSQL
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/e53b957e-ffd4-4f72-837c-15c8e15ffca8)
+
+Создание БД. Выберите Да
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/efb59610-5587-4b89-881c-68e17bb8f46c)
+
+Хост СУБД
+
+При локальной установки. Выберите Ок
+
+>[!Warning]
+>Если СУБД установлена отдельно, укажите ip или имя хоста
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/5d8652cd-4b91-42a7-85d0-6598c6d04f99)
+
+По умолчанию 5432 используется. Если настроен другой, указать его. Оставляем как есть.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/50516ca5-1416-4627-b177-17797cef2dff)
+
+Пользователь с правами создания БД и пользователей
+
+По умолчанию ccdisk
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/2338b1fd-8a30-4e90-93b5-5976a0f822f2)
+
+Пароль пользователя с правами создания БД и пользователя ccdisk
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/75e1d240-bfc7-4ca1-9121-0ab0c0434631)
+
+Пароль для пользователя БД Корпоративный сервер 2024
+
+Укажите пароль для пользователя cddisk
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/eeb7efb0-bef6-4b9c-8681-93b390253895)
+
+coremachinkey от CS
+
+Изменить на актуальный, если есть Р7-Офис Корпоративный сервер и нажмите ОК, если нет, нажмите Ок без редактирования
+
+нажмите Ок
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/f84b01c3-e939-4a99-be2d-d167faaec63c)
+
+>[!Warning]
+>Если Вы выбрали установки без HTTPS, то, после инсталляции, почтовый сервер работать не будет. Он не запустится.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/66be4d92-4f9d-4209-87bf-a61562ce9f6c)
+
+Укажите домен. Необходимо указать домен, в котором у Вас созданы записи
+
+Например, it.company.lan
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/b59d6e51-4f55-464a-bb56-5085017c1fc2)
+
+Префикс Р7-Диск
+
+Указать имя, которое будет открываться в браузере для веб р7-Диска
+
+Например, если Вы хотите, чтобы открылся Р7-Диск по адресу cdisk.it.company.lan, то указать нужно именно cdisk, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/753c4eb6-0801-4e24-91c8-edfeaae3a5eb)
+
+Префикс Р7-Админ
+
+Указать имя, которое будет открываться в браузере для веб админской панели.
+
+Например, если Вы хотите, чтобы открылся Р7-Админ по адресу admin.it.company.lan, то указать нужно именно admin, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/40ba1167-8e99-40dd-b440-ebda9a94799e)
+
+Префикс Р7-Контакты
+
+Указать имя, которое будет открываться в браузере для веб клиента контактов.
+
+Например, если Вы хотите, чтобы открылся Р7-Контакты по адресу contacts.it.company.lan, то указать нужно именно contacts, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/9415ae9e-2b7b-438e-8bcb-8a4b74946558)
+
+Префикс Р7-Почта
+
+Указать имя, которое будет открываться в браузере для веб клиента почты.
+
+Например, если Вы хотите, чтобы открылся Р7-Почта по адресу objects.it.company.lan, то указать нужно именно objects, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/4bdbbe02-4d4b-4fa2-ab72-f08ebbdcb47d)
+
+Префикс Р7-Почта
+
+Указать имя, которое будет открываться в браузере для веб клиента почты.
+
+Например, если Вы хотите, чтобы открылся Р7-Почта по адресу cmail.it.company.lan, то указать нужно именно cmail, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/2f42133d-8ec8-4d67-86d9-8a73e9b7e166)
+
+Префикс Р7-Календарь
+
+Укажите имя, которое будет открываться в браузере для веб календаря.
+
+Например, если Вы хотите, чтобы открылся Р7-Календарь по адресу calendar.it.company.lan, то указать нужно именно calendar, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/7a5864f9-55a1-41a3-85d3-2e086d5960a0)
+
+![image](https://github.com/user-attachments/assets/384e52b1-47b3-4b56-b9d7-ea2ab735353c)
+
+![image](https://github.com/user-attachments/assets/7c186766-c1a5-450a-b2bd-fed838bb031c)
+
+![image](https://github.com/user-attachments/assets/84aeb3b3-b18f-45fa-9db8-88dccae1f1aa)
+
+![image](https://github.com/user-attachments/assets/61ee719d-51e6-406a-a17d-e23adf49774d)
+
+![image](https://github.com/user-attachments/assets/6c8fdf01-d493-4fbb-99e2-4b56596f149d)
+
+![image](https://github.com/user-attachments/assets/32a3af30-3c02-43f5-aabb-90ed074ee08a)
+
+![image](https://github.com/user-attachments/assets/29b8a56f-4da1-46e7-acaf-4a4b4c1814a2)
+
+Перезагружаем севрвер
+
+Проверяем работу службы rabbitmq
+
+![image](https://github.com/user-attachments/assets/3672e338-7388-4579-9480-13eba974e74d)
+
+Обратно расскоментируем шлюз и репозитории
+
+![image](https://github.com/user-attachments/assets/228cff78-e77b-4ff6-8ead-7fe020f835c9)
 
 
 
