@@ -176,8 +176,8 @@ chmod +x offline-installer.sh
 Пароль для Базы Данных DS
 
 <hr>
+
 ![image](https://github.com/user-attachments/assets/ca77e6dc-0bb6-4bc0-99b5-33879d15d8f5)
-![image](https://github.com/user-attachments/assets/961ab686-f66b-449e-bee2-fa8d581b6e58)
 
 Установка api и web диска
 
@@ -185,7 +185,7 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/2851b0be-5601-41a8-9546-660536d10d7a)
+![image](https://github.com/user-attachments/assets/961ab686-f66b-449e-bee2-fa8d581b6e58)
 
 Тип СУБД Корпоративный сервер 2024
 
@@ -193,13 +193,13 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/e53b957e-ffd4-4f72-837c-15c8e15ffca8)
+![image](https://github.com/user-attachments/assets/2851b0be-5601-41a8-9546-660536d10d7a)
 
 Создание БД. Выберите Да
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/efb59610-5587-4b89-881c-68e17bb8f46c)
+![image](https://github.com/user-attachments/assets/e53b957e-ffd4-4f72-837c-15c8e15ffca8)
 
 Хост СУБД
 
@@ -210,13 +210,13 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/5d8652cd-4b91-42a7-85d0-6598c6d04f99)
+![image](https://github.com/user-attachments/assets/efb59610-5587-4b89-881c-68e17bb8f46c)
 
 По умолчанию 5432 используется. Если настроен другой, указать его. Оставляем как есть.
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/50516ca5-1416-4627-b177-17797cef2dff)
+![image](https://github.com/user-attachments/assets/5d8652cd-4b91-42a7-85d0-6598c6d04f99)
 
 Пользователь с правами создания БД и пользователей
 
@@ -224,13 +224,13 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/2338b1fd-8a30-4e90-93b5-5976a0f822f2)
+![image](https://github.com/user-attachments/assets/50516ca5-1416-4627-b177-17797cef2dff)
 
 Пароль пользователя с правами создания БД и пользователя ccdisk
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/75e1d240-bfc7-4ca1-9121-0ab0c0434631)
+![image](https://github.com/user-attachments/assets/2338b1fd-8a30-4e90-93b5-5976a0f822f2)
 
 Пароль для пользователя БД Корпоративный сервер 2024
 
@@ -238,6 +238,7 @@ chmod +x offline-installer.sh
 
 <hr>
 
+![image](https://github.com/user-attachments/assets/75e1d240-bfc7-4ca1-9121-0ab0c0434631)
 ![image](https://github.com/user-attachments/assets/eeb7efb0-bef6-4b9c-8681-93b390253895)
 
 coremachinkey от CS
