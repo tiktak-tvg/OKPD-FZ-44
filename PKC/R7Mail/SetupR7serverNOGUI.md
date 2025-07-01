@@ -96,6 +96,12 @@ cd cddisk
 chmod +x install.sh
 ./install.sh
 ```
+![image](https://github.com/user-attachments/assets/6f188292-8344-4c91-8724-a3a2ea93e269)
+
+![image](https://github.com/user-attachments/assets/01c8ed7c-29e1-46a8-80a4-2cb419f00b44)
+
+Проверяем что распаковалось всё без ошибок и продолжаем установку.
+
 >[!WARNING]
 >Для offline установки требуется установить пакеты в систему и подключить iso образ установочного диска операционный системы в папку distr.
 
