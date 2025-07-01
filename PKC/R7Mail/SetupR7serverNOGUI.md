@@ -56,15 +56,17 @@ cd /mnt
 - Модуль Р7 Диск, Модуль Р7-Админ,
 - Модуль Р7-Календарь, Модуль Р7-Почта, Модуль Р7-Проекты
 
+![image](https://github.com/user-attachments/assets/5a70f184-9664-4d04-b2b3-9983295d8222)
+
 Скачать пакеты можно по ссылке: [https://r7-office.ru/downloadserver#retail]
 
 ![image](https://github.com/user-attachments/assets/46376d55-c05c-464a-8b1a-53e62ee45c6e)
 
 ![image](https://github.com/user-attachments/assets/bad0ed00-4ac6-4b2c-8ecd-97f0062af4c2)
 
-![image](https://github.com/user-attachments/assets/5fb3e1fe-3af3-48c4-8296-9ae5413beec7)
+![image](https://github.com/user-attachments/assets/cd831b9f-bd12-40fd-b665-edaa72131101)
 
-Скачайте архив cddisk.zip который содержит пакеты для корпоративного сервера 2024. 
+Скачайте архив `cddisk.zip` который содержит пакеты для корпоративного сервера 2024. 
 
 Скачать пакеты можно по ссылке: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
 
