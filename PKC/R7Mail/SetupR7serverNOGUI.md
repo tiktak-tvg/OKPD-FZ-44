@@ -434,7 +434,64 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
 ```bash
-https:/admin.it.company.lan
+https://admin.it.company.lan
 ```
+
+![image](https://github.com/user-attachments/assets/4ebab8ed-fbfc-4723-a2a0-dbafa6bfbfcc)
+
+![image](https://github.com/user-attachments/assets/00519bae-6323-4e46-bca9-7deb495ae38a)
+
+![image](https://github.com/user-attachments/assets/fb373ca0-d024-4850-b169-b67b52f10c36)
+
+![image](https://github.com/user-attachments/assets/e0f61e64-b714-4a3e-a7a4-8ed41c8d2523)
+
+![image](https://github.com/user-attachments/assets/e1c6ca11-968a-4dc7-91e4-0877cbd16fb3)
+
+
+В настройках КС24 указать корректные порты ПС.
+
+- **POP сервер** - 995  Тип соединения: None 
+- **IMAP сервер** - 993 Тип соединения: SslOnConnect 
+- **SMTP сервер** - 465 Тип соединения: SslOnConnect
+
+Создать почтового пользователя и проверить работу почты.
+
+Переходим во вкладку  ![image](https://github.com/user-attachments/assets/a143ef65-fa75-4438-9fd0-d4f45d8cd2c1) `Почта`
+
+![image](https://github.com/user-attachments/assets/0490e089-4f78-4ea4-b219-9c27a88d009e)
+
+![image](https://github.com/user-attachments/assets/ef89b633-2f21-40aa-8123-2898c7222516)
+
+![image](https://github.com/user-attachments/assets/0120fac9-ad57-4cb0-b1f5-d65358016b5c)
+
+![image](https://github.com/user-attachments/assets/c78b0506-fea7-4f9b-a230-9bf73546c794)
+
+>[!Warning]
+>После установки почтового сервера рекомендую прописать записи в DNS для работы почтового сервера.
+>Необходимо добавить SRV записи IMAP, IMAPS, POP, SMTP и AUTODISCOVER для автоматичекого обнаружения протоколов. Создать файл autodiscover.xml.
+
+Остальные настройки находятся в файлах.
+
+- Настройка в файле Autodiscover.md
+- Настройка SRV записей.md
+- Настройка почтовых протоколов.md
+- Настройка API.md
+- Установка Органайзера.md
+- Установка модуля графики.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
