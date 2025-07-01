@@ -510,7 +510,6 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/9a690a18-2476-4aa7-b307-453becec49da)
 
-
 В данном окне надо внести имя вашего MX почтового сервера, который прописан в записи А на контроллере домена. 
 
 В моём случае запись А в DNS такая ``A  r7mx1.it.company.lan  TTL``
@@ -569,7 +568,7 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
 ```bash
-https:/admin/it.company.lan
+https:/admin.it.company.lan
 ```
 ![image](https://github.com/user-attachments/assets/d0b2d655-32fa-4980-b66e-7e1a45a3ef53)
 
