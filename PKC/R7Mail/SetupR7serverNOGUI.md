@@ -70,19 +70,26 @@ cd /mnt
 
 Скачать пакеты можно по ссылке: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
 
-1. Установить wget
-2. Скачать архив cddisk.zip, распаковать и установить пакеты командой
+![image](https://github.com/user-attachments/assets/df7ca167-4541-432a-b97f-8f7a8e98d9ff)
 
-sh install.sh
+Перетащите его в директорию /mnt  
 
-
-Зайдите в директорию со скаченными архивами и распакуте их в корень папки /mnt
+Зайдите на терминале в директорию со скаченными архивами и распакуте их в корень папки /mnt
 ```bash
 cd /mnt
-Распакуйте архив CDinstall_.zip
+Распакуйте архив CDinstall_*.zip
 unzip CDinstall_*.zip
-Перейдите в каталог
-cd CDDiskPack/CDinstall
+unzip cddisk.zip
+```
+![image](https://github.com/user-attachments/assets/d8f008ef-6e3e-4171-9c89-b628d56b03ad)
+
+Перейдите в каталог `cddisk` и установите пакеты командой `install.sh`
+```
+cd /mnt
+unzip cddisk.zip
+cd cddisk
+chmod +x install.sh
+./install.sh
 ```
 Для offline установки требуется установить пакеты в систему и подключить iso образ установочного диска операционный системы в папку distr.
 ```bash
