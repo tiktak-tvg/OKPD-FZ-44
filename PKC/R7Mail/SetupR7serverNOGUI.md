@@ -1,6 +1,6 @@
 ## Установка Корпоративного сервера 2024 без графического интерфейса offline-версии(без интернета) для ОС Astra.
 
-Установка произваодится на VM Ware Workstation, версия ОС Астра 1.7.4
+Установка производится на VM Ware Workstation, версия ОС Астра 1.7.4
 
 Установка состоит из нескольких этапов:
 
@@ -424,7 +424,7 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 ![image](https://github.com/user-attachments/assets/3672e338-7388-4579-9480-13eba974e74d)
 
-Обратно расскоментируем шлюз и репозитории
+Обратно раскомментируем шлюз и репозитории
 
 ![image](https://github.com/user-attachments/assets/228cff78-e77b-4ff6-8ead-7fe020f835c9)
 
@@ -468,7 +468,7 @@ https://admin.it.company.lan
 
 >[!Warning]
 >После установки почтового сервера прописываем записи в DNS для работы почтового сервера.
->Необходимо добавить SRV записи IMAP, IMAPS, POP, SMTP и AUTODISCOVER для автоматичекого обнаружения протоколов. Создать файл autodiscover.xml.
+>Необходимо добавить SRV записи IMAP, IMAPS, POP, SMTP и AUTODISCOVER для автоматического обнаружения протоколов. Создать файл autodiscover.xml.
 
 Остальные настройки находятся в файлах.
 
