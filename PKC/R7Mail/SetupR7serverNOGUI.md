@@ -239,7 +239,6 @@ chmod +x offline-installer.sh
 <hr>
 
 ![image](https://github.com/user-attachments/assets/75e1d240-bfc7-4ca1-9121-0ab0c0434631)
-![image](https://github.com/user-attachments/assets/eeb7efb0-bef6-4b9c-8681-93b390253895)
 
 coremachinkey от CS
 
@@ -249,14 +248,14 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/f84b01c3-e939-4a99-be2d-d167faaec63c)
+![image](https://github.com/user-attachments/assets/eeb7efb0-bef6-4b9c-8681-93b390253895)
 
 >[!Warning]
 >Если Вы выбрали установки без HTTPS, то, после инсталляции, почтовый сервер работать не будет. Он не запустится.
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/66be4d92-4f9d-4209-87bf-a61562ce9f6c)
+![image](https://github.com/user-attachments/assets/f84b01c3-e939-4a99-be2d-d167faaec63c)
 
 Укажите домен. Необходимо указать домен, в котором у Вас созданы записи
 
@@ -264,7 +263,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/b59d6e51-4f55-464a-bb56-5085017c1fc2)
+![image](https://github.com/user-attachments/assets/66be4d92-4f9d-4209-87bf-a61562ce9f6c)
 
 Префикс Р7-Диск
 
@@ -276,7 +275,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/753c4eb6-0801-4e24-91c8-edfeaae3a5eb)
+![image](https://github.com/user-attachments/assets/b59d6e51-4f55-464a-bb56-5085017c1fc2)
 
 Префикс Р7-Админ
 
@@ -288,7 +287,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/40ba1167-8e99-40dd-b440-ebda9a94799e)
+![image](https://github.com/user-attachments/assets/753c4eb6-0801-4e24-91c8-edfeaae3a5eb)
 
 Префикс Р7-Контакты
 
@@ -300,7 +299,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/9415ae9e-2b7b-438e-8bcb-8a4b74946558)
+![image](https://github.com/user-attachments/assets/40ba1167-8e99-40dd-b440-ebda9a94799e)
 
 Префикс Р7-Почта
 
@@ -312,7 +311,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/4bdbbe02-4d4b-4fa2-ab72-f08ebbdcb47d)
+![image](https://github.com/user-attachments/assets/9415ae9e-2b7b-438e-8bcb-8a4b74946558)
 
 Префикс Р7-Почта
 
@@ -324,7 +323,7 @@ coremachinkey от CS
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/2f42133d-8ec8-4d67-86d9-8a73e9b7e166)
+![image](https://github.com/user-attachments/assets/4bdbbe02-4d4b-4fa2-ab72-f08ebbdcb47d)
 
 Префикс Р7-Календарь
 
@@ -335,6 +334,8 @@ coremachinkey от CS
 Также, необходимо сделать соответствующую А запись в DNS.
 
 <hr>
+
+![image](https://github.com/user-attachments/assets/2f42133d-8ec8-4d67-86d9-8a73e9b7e166)
 
 ![image](https://github.com/user-attachments/assets/7a5864f9-55a1-41a3-85d3-2e086d5960a0)
 
