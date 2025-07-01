@@ -46,6 +46,8 @@
 
 Открываем репозитории `` nano /etc/apt/sources.list`` и комментируем все репозитории
 
+![image](https://github.com/user-attachments/assets/e96855d8-29ec-4034-8d3e-da9cadd312b1)
+
 Для корректной установки, архив поместить в директории `/mnt`
 ```bash
 cd /mnt
@@ -426,6 +428,13 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 ![image](https://github.com/user-attachments/assets/228cff78-e77b-4ff6-8ead-7fe020f835c9)
 
+![image](https://github.com/user-attachments/assets/815645a7-c5d9-4f2e-b576-48b409844458)
 
+### 4. Настройка почтового сервера Р7.
+
+Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
+```bash
+https:/admin/it.company.lan
+```
 
 
