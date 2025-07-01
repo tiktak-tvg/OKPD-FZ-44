@@ -434,7 +434,7 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
 ```bash
-https:/admin/it.company.lan
+https:/admin.it.company.lan
 ```
 
 
