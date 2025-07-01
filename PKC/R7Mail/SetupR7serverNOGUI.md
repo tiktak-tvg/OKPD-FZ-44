@@ -337,25 +337,88 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/2f42133d-8ec8-4d67-86d9-8a73e9b7e166)
 
+Префикс Р7-Сервер Документов
+
+Указать имя, которое будет открываться в браузере для веба сервера документом.
+
+Например, если Вы хотите, чтобы открылся Р7-Сервер Документов по адресу ds.it.company.lan, то указать нужно именно ds, без указания домена.
+
+Также, необходимо сделать соответствующую А запись в DNS.
+
+<hr>
+
+### 3. Установка почтового сервера R7.
+
 ![image](https://github.com/user-attachments/assets/7a5864f9-55a1-41a3-85d3-2e086d5960a0)
+
+Установка почтового сервера - ДА
+
+---
 
 ![image](https://github.com/user-attachments/assets/384e52b1-47b3-4b56-b9d7-ea2ab735353c)
 
+Выберите базу данных для установки.
+
+---
+
 ![image](https://github.com/user-attachments/assets/7c186766-c1a5-450a-b2bd-fed838bb031c)
+
+В данном окне надо внести имя вашего MX почтового сервера, который прописан в записи А на контроллере домена. 
+
+В моём случае запись А в DNS такая ``A  r7mx1.it.company.lan  TTL``
+
+Если MX запись выглядит, как r7mx1.it.company.lan, то ввести необходимо просто hostname почтового сервера **r7mx1**
+
+<hr>
 
 ![image](https://github.com/user-attachments/assets/84aeb3b3-b18f-45fa-9db8-88dccae1f1aa)
 
+Укажите ip адрес
+
+Укажите внешний ip адрес сервера, для корректной работы почтового сервера.
+
+Если указать приватный внутренний ip, то почта будет работать только внутри сети организации.
+
+<hr>
+
 ![image](https://github.com/user-attachments/assets/61ee719d-51e6-406a-a17d-e23adf49774d)
+
+Пароль root для Postgresql
+
+Укажите пароль, который будет задан пользователю root Postgresql
+
+<hr>
 
 ![image](https://github.com/user-attachments/assets/6c8fdf01-d493-4fbb-99e2-4b56596f149d)
 
+Установка SpamAssassin
+
+Если требуется установка
+
+Выберите 1
+
+<hr>
+
 ![image](https://github.com/user-attachments/assets/32a3af30-3c02-43f5-aabb-90ed074ee08a)
+
+Установка OpenDKIM
+
+Если требуется установка. Выберите Да
+
+<hr>
+
+**DKIM** — это технология аутентификации электронной почты, которая позволяет проверить, что письмо действительно отправлено от имени домена и не было изменено в процессе доставки. DKIM использует цифровую подпись, чтобы подтвердить подлинность отправителя и целостность содержимого письма.<br>
+DKIM-запись хранится в DNS домена в формате TXT-записи и выглядит примерно так:
+```bash
+selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC..."
+```
+После инсталляции в консоли будет предложено сделать TXT запись.
 
 ![image](https://github.com/user-attachments/assets/29b8a56f-4da1-46e7-acaf-4a4b4c1814a2)
 
-Перезагружаем севрвер
+**Перезагружаем севрвер**
 
-Проверяем работу службы rabbitmq
+Проверяем работу службы `rabbitmq`
 
 ![image](https://github.com/user-attachments/assets/3672e338-7388-4579-9480-13eba974e74d)
 
