@@ -137,10 +137,6 @@ chmod +x offline-installer.sh
 
 ![image](https://github.com/user-attachments/assets/a3f7c38e-fc38-46b6-94fe-16cac330c3fb)
 
-<hr>
-
-![image](https://github.com/user-attachments/assets/4fd55bad-acb9-49ce-9985-ac0f43881b55)
-
 Чистая установка
 
 Если требуется выполнить чистую установку (удалит имеющуюся инсталляцию Корпоративный сервер 2024 и зависимости):
@@ -149,7 +145,7 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/df64e74e-0c34-44ac-b978-a05e56fc5651)
+![image](https://github.com/user-attachments/assets/4fd55bad-acb9-49ce-9985-ac0f43881b55)
  
 Установка СУБД на локальную ВМ
 
@@ -159,7 +155,7 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/1f24f651-b632-41cd-a803-e88a3d79db7c)
+![image](https://github.com/user-attachments/assets/df64e74e-0c34-44ac-b978-a05e56fc5651)
 
 Установка Сервера Документов
 
@@ -167,18 +163,20 @@ chmod +x offline-installer.sh
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/551af633-bb6e-45c1-88cb-516a0f4067bd)
+![image](https://github.com/user-attachments/assets/1f24f651-b632-41cd-a803-e88a3d79db7c)
+
 
 Необходимо ввести пароль-секрет для защищённого доступа между Корпоративный сервер 2024 и Сервером Документов.
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/ca77e6dc-0bb6-4bc0-99b5-33879d15d8f5)
+![image](https://github.com/user-attachments/assets/551af633-bb6e-45c1-88cb-516a0f4067bd)
+
 
 Пароль для Базы Данных DS
 
 <hr>
-
+![image](https://github.com/user-attachments/assets/ca77e6dc-0bb6-4bc0-99b5-33879d15d8f5)
 ![image](https://github.com/user-attachments/assets/961ab686-f66b-449e-bee2-fa8d581b6e58)
 
 Установка api и web диска
