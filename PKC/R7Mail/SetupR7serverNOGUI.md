@@ -62,9 +62,9 @@ cd /mnt
 
 ![image](https://github.com/user-attachments/assets/46376d55-c05c-464a-8b1a-53e62ee45c6e)
 
-![image](https://github.com/user-attachments/assets/bad0ed00-4ac6-4b2c-8ecd-97f0062af4c2)
+![image](https://github.com/user-attachments/assets/495b298b-52d6-437e-b584-4ac6d80fbcec)
 
-![image](https://github.com/user-attachments/assets/cd831b9f-bd12-40fd-b665-edaa72131101)
+![image](https://github.com/user-attachments/assets/3a9287b7-68d2-4bbe-a8a3-9136fa1fddd5)
 
 Скачайте архив `cddisk.zip` который содержит пакеты для корпоративного сервера 2024. 
 
@@ -74,28 +74,36 @@ cd /mnt
 
 Перетащите его в директорию /mnt  
 
-Зайдите на терминале в директорию со скаченными архивами и распакуте их в корень папки /mnt
+Зайдите на терминале в директорию со скаченными архивами и распакуте их в корень папки `/mnt`
+
+Распакуйте архив `CDinstall_2.0.2024.14752_Astra_1.7.4_offline.zip`
 ```bash
 cd /mnt
-Распакуйте архив CDinstall_*.zip
-unzip CDinstall_*.zip
+unzip CDinstall_2.0.2024.14752_Astra_1.7.4_offline.zip
 unzip cddisk.zip
 ```
 ![image](https://github.com/user-attachments/assets/d8f008ef-6e3e-4171-9c89-b628d56b03ad)
 
+![image](https://github.com/user-attachments/assets/4db0bdde-9d56-47c1-a66d-b6a46219d129)
+
+![image](https://github.com/user-attachments/assets/d0403d17-7481-4793-afb7-282de1c4643e)
+
+После как распаковали получились две папки `CDDiskPack` и `cddisk`
+
 Перейдите в каталог `cddisk` и установите пакеты командой `install.sh`
 ```
-cd /mnt
-unzip cddisk.zip
 cd cddisk
 chmod +x install.sh
 ./install.sh
 ```
-Для offline установки требуется установить пакеты в систему и подключить iso образ установочного диска операционный системы в папку distr.
+>[!WARNING]
+>Для offline установки требуется установить пакеты в систему и подключить iso образ установочного диска операционный системы в папку distr.
+
 ```bash
 
 ```
-Для корректной работы Корпоративного сервера обязательно требуется настройка HTTPS. Перед установкой, скопируйте crt и key файлы в папку CDDiskPack/CDinstall/sslcert. 
+>[!WARNING]
+>Для корректной работы Корпоративного сервера обязательно требуется настройка HTTPS. Перед установкой, скопируйте crt и key файлы в папку `CDDiskPack/CDinstall/sslcert`. 
 
 Потребуется использовать ssl сертификат типа wildcard с соответствующей А записью (пример, *.yourdomain.ru) на используемом DNS сервере в сети сервера. 
 
