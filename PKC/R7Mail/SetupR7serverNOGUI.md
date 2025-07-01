@@ -56,15 +56,17 @@ cd /mnt
 - Модуль Р7 Диск, Модуль Р7-Админ,
 - Модуль Р7-Календарь, Модуль Р7-Почта, Модуль Р7-Проекты
 
-[https://r7-office.ru/downloadserver#retail]
+Скачать пакеты можно по ссылке: [https://r7-office.ru/downloadserver#retail]
 
 ![image](https://github.com/user-attachments/assets/46376d55-c05c-464a-8b1a-53e62ee45c6e)
 
-![image](https://github.com/user-attachments/assets/fa1322ec-7e54-4b89-b309-1ad5f1a31fcc)
+![image](https://github.com/user-attachments/assets/bad0ed00-4ac6-4b2c-8ecd-97f0062af4c2)
 
 ![image](https://github.com/user-attachments/assets/5fb3e1fe-3af3-48c4-8296-9ae5413beec7)
 
-Скачайте архив cddisk.zip который содержит пакеты для корпоративного сервера 2024. Скачать пакеты можно по ссылке: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
+Скачайте архив cddisk.zip который содержит пакеты для корпоративного сервера 2024. 
+
+Скачать пакеты можно по ссылке: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
 
 1. Установить wget
 2. Скачать архив cddisk.zip, распаковать и установить пакеты командой
