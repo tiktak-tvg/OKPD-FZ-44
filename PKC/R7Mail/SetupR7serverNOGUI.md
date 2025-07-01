@@ -102,15 +102,12 @@ chmod +x install.sh
 
 Проверяем что распаковалось всё без ошибок и продолжаем установку.
 
-Теперь установим шрифты от Майкрософта
-
-
 >[!WARNING]
 >Для offline установки требуется установить пакеты в систему и подключить iso образ установочного диска операционный системы в папку distr.
 
-```bash
+![image](https://github.com/user-attachments/assets/b75c7e92-c332-4eae-a2f6-b865d5333dff)
 
-```
+
 >[!WARNING]
 >Для корректной работы Корпоративного сервера обязательно требуется настройка HTTPS. Перед установкой, скопируйте crt и key файлы в папку `/mnt/CDDiskPack/CDinstall_Astra_1.7.4/sslcert`. 
 
@@ -120,9 +117,21 @@ chmod +x install.sh
 
 ![image](https://github.com/user-attachments/assets/c2c46672-701f-477e-b184-8817dbf51fd9)
 
+Отключаем полностью доступ в интернет в файле nano `/etc/network/interfaces` закомментируем шлюз
 
+![image](https://github.com/user-attachments/assets/bb502064-23a8-46ff-882a-6e3974a611a1)
 
+Проверяем
 
+![image](https://github.com/user-attachments/assets/725be3cb-fe20-4b09-9aac-a2fcc16c3763)
+
+Теперь запускаем установку
+
+```bash
+cd /mnt/CDDiskPack/CDinstall_Astra_1.7.4/
+chmod +x offline-installer.sh
+./offline-installer.sh
+```
 
 
 
