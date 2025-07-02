@@ -42,7 +42,11 @@
 
 ![image](https://github.com/user-attachments/assets/f97a31ec-cc05-444a-9bbf-9670397f860e)
 
-После установки выполняем команды:
+Если есть доступ к общим папкам по сети, тогда подключаем сетевую общую шару. Выполняем команду:
+```bash
+mkdir /mnt/myshare
+mount -t cifs //путь до вашей шары  /mnt/myshare –o username=user,password=pass,wr,nounix,iocharset=utf8
+```
 
 Открываем репозитории `` nano /etc/apt/sources.list`` и комментируем все репозитории
 
