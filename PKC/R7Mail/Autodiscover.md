@@ -63,7 +63,7 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
   </Response>
 </Autodiscover>
 ```
-![image](https://github.com/user-attachments/assets/e6c16ee5-eff0-4f36-a9a1-9837e7d9e2c2)
+![image](https://github.com/user-attachments/assets/ed944f55-843d-466c-86ce-bc78d18d4d91)
 
 ---
 
@@ -98,7 +98,7 @@ server {
     }
 }
 ```
-![image](https://github.com/user-attachments/assets/3fe13c1b-b054-4c0d-a907-62e33b39e9f3)
+![image](https://github.com/user-attachments/assets/3dfe412c-7be3-49fc-a115-6bd44d6bff08)
 
 Перезагрузите Nginx:  
 ```bash
