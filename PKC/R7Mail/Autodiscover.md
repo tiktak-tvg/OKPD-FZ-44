@@ -30,7 +30,11 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
 
 Создайте папку `mkdir /var/www/autodiscover`
 
+![image](https://github.com/user-attachments/assets/19bd8513-16cb-4475-9a54-3bc4a709fc3f)
+
 Создайте файл `touch /var/www/autodiscover/autodiscover.xml` 
+
+![image](https://github.com/user-attachments/assets/8f0332f6-9a89-4287-a723-131e17474bb4)
 
 Создайте файл `nano /var/www/autodiscover/autodiscover.xml` заполните содержимым:
 
@@ -59,6 +63,8 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
   </Response>
 </Autodiscover>
 ```
+![image](https://github.com/user-attachments/assets/e6c16ee5-eff0-4f36-a9a1-9837e7d9e2c2)
+
 ---
 
 #### 3.Настройка веб-сервера (Nginx)
@@ -92,6 +98,8 @@ server {
     }
 }
 ```
+![image](https://github.com/user-attachments/assets/3fe13c1b-b054-4c0d-a907-62e33b39e9f3)
+
 Перезагрузите Nginx:  
 ```bash
 проверить запись на ошибки
@@ -99,6 +107,8 @@ nginx -t
 
 systemctl reload nginx
 ```
+![image](https://github.com/user-attachments/assets/ab1252d7-ca2b-4de7-87d6-5e1e295dd8cd)
+
 ---
 
 #### 4.Дополнительно: Файл для Thunderbird
