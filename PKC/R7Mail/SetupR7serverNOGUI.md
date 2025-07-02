@@ -29,7 +29,10 @@
 >[!WARNING]
 >Минимальные системные требования рассчитаны при одновременной работе до 300 пользователей.
 
-Устанавливаем виртуальную машину ОС Астра 1.7.4 из образа `1.7.4-24.04.2023_14.23.iso`<br>
+Устанавливаем виртуальную машину ОС Астра 1.7.4 из образа
+```bash
+1.7.4-24.04.2023_14.23.iso`
+```
 При установке операционной системы выберите пункты <br>
 **«Средства работы с интернет»** <br>
 **«Консольные утилиты»** <br>
@@ -56,7 +59,7 @@ mount -t cifs //путь до вашей шары  /mnt/myshare –o username=us
 ```bash
 cd /mnt
 ```
-Скачайте архив Корпоративный сервер 2024 для установки и перетащите его в директорию /mnt  
+Скачайте архив Корпоративный сервер 2024 для установки 
 
 - Оффлайн установкаТекущая версия: 2.0.2024.14752
 - Модуль Р7 Диск, Модуль Р7-Админ,
@@ -64,7 +67,7 @@ cd /mnt
 
 ![image](https://github.com/user-attachments/assets/5a70f184-9664-4d04-b2b3-9983295d8222)
 
-Скачать пакеты можно по ссылке: [https://r7-office.ru/downloadserver#retail]
+Ссылка: [https://r7-office.ru/downloadserver#retail]
 
 ![image](https://github.com/user-attachments/assets/46376d55-c05c-464a-8b1a-53e62ee45c6e)
 
@@ -74,7 +77,7 @@ cd /mnt
 
 Скачайте архив `cddisk.zip` который содержит пакеты для корпоративного сервера 2024. 
 
-Скачать пакеты можно по ссылке: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
+Ссылка: [https://nct.r7-office.ru/link/549705e3-5e21-49f1-afc4-57c88ecae674]
 
 ![image](https://github.com/user-attachments/assets/df7ca167-4541-432a-b97f-8f7a8e98d9ff)
 
@@ -94,9 +97,9 @@ unzip cddisk.zip
 
 ![image](https://github.com/user-attachments/assets/d0403d17-7481-4793-afb7-282de1c4643e)
 
-После как распаковали получились две папки `CDDiskPack` и `cddisk`
+После как распаковали получились две папки ``CDDiskPack`` и ``cddisk``
 
-Перейдите в каталог `cddisk` и установите пакеты командой `install.sh`
+Перейдите в каталог ``cddisk`` и установите пакеты командой ``install.sh``
 ```
 cd cddisk
 chmod +x install.sh
@@ -115,15 +118,15 @@ chmod +x install.sh
 
 
 >[!WARNING]
->Для корректной работы Корпоративного сервера обязательно требуется настройка HTTPS. Перед установкой, скопируйте crt и key файлы в папку `/mnt/CDDiskPack/CDinstall_Astra_1.7.4/sslcert`. 
+>Для корректной работы Корпоративного сервера обязательно требуется настройка HTTPS. Перед установкой, скопируйте crt и key файлы в папку ``/mnt/CDDiskPack/CDinstall_Astra_1.7.4/sslcert``. 
 
-Потребуется использовать ssl сертификат типа wildcard с соответствующей А записью (пример, *.yourdomain.ru) на используемом DNS сервере в сети сервера. 
+Потребуется использовать ssl сертификат типа wildcard с соответствующей А записью (пример, ``*.yourdomain.ru``) на используемом DNS сервере в сети сервера. 
 
-Имя файла должно содержать название домена и расширение. Рекомендуем в .crt указывать всю цепочку сертификатов, домен, промежуточные и корневой. Например, для домена r7.ru имена файлов должны быть it.company.lan.crt и it.company.lan.key.
+Имя файла должно содержать название домена и расширение. Рекомендуем в .crt указывать всю цепочку сертификатов, домен, промежуточные и корневой. Например, для домена r7.ru имена файлов должны быть ``it.company.lan.crt и it.company.lan.key``.
 
 ![image](https://github.com/user-attachments/assets/c2c46672-701f-477e-b184-8817dbf51fd9)
 
-Отключаем полностью доступ в интернет в файле nano `/etc/network/interfaces` закомментируем шлюз
+Отключаем полностью доступ в интернет в файле nano ``/etc/network/interfaces`` закомментируем шлюз
 
 ![image](https://github.com/user-attachments/assets/bb502064-23a8-46ff-882a-6e3974a611a1)
 
@@ -143,29 +146,29 @@ chmod +x offline-installer.sh
 
 ![image](https://github.com/user-attachments/assets/a3f7c38e-fc38-46b6-94fe-16cac330c3fb)
 
-Чистая установка
+Чистая установка.
 
 Если требуется выполнить чистую установку (удалит имеющуюся инсталляцию Корпоративный сервер 2024 и зависимости):
 
-Выберите Да
+Выберите. Да
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/4fd55bad-acb9-49ce-9985-ac0f43881b55)
  
-Установка СУБД на локальную ВМ
+Установка СУБД на локальную ВМ.
 
 Для установки PostgreSQL (при инсталляции всё в одном) на локальный компьютер:
 
-Выберите Да
+Выберите. Да
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/df64e74e-0c34-44ac-b978-a05e56fc5651)
 
-Установка Сервера Документов
+Установка Сервера Документов.
 
-Для его установки: Выберите Да
+Для его установки: Выберите. Да
 
 <hr>
 
@@ -179,21 +182,21 @@ chmod +x offline-installer.sh
 ![image](https://github.com/user-attachments/assets/551af633-bb6e-45c1-88cb-516a0f4067bd)
 
 
-Пароль для Базы Данных DS
+Пароль для Базы Данных DS.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/ca77e6dc-0bb6-4bc0-99b5-33879d15d8f5)
 
-Установка api и web диска
+Установка api и web диска.
 
-Для его установки: Выберите Да
+Для его установки: Выберите. Да
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/961ab686-f66b-449e-bee2-fa8d581b6e58)
 
-Тип СУБД Корпоративный сервер 2024
+Тип СУБД Корпоративный сервер 2024.
 
 Выберите PostgreSQL
 
@@ -201,7 +204,7 @@ chmod +x offline-installer.sh
 
 ![image](https://github.com/user-attachments/assets/2851b0be-5601-41a8-9546-660536d10d7a)
 
-Создание БД. Выберите Да
+Создание БД. Выберите. Да
 
 <hr>
 
@@ -209,7 +212,7 @@ chmod +x offline-installer.sh
 
 Хост СУБД
 
-При локальной установки. Выберите Ок
+При локальной установки. Выберите. Ок
 
 >[!Warning]
 >Если СУБД установлена отдельно, укажите ip или имя хоста
@@ -224,7 +227,7 @@ chmod +x offline-installer.sh
 
 ![image](https://github.com/user-attachments/assets/5d8652cd-4b91-42a7-85d0-6598c6d04f99)
 
-Пользователь с правами создания БД и пользователей
+Пользователь с правами создания БД и пользователей.
 
 По умолчанию ccdisk
 
@@ -232,23 +235,23 @@ chmod +x offline-installer.sh
 
 ![image](https://github.com/user-attachments/assets/50516ca5-1416-4627-b177-17797cef2dff)
 
-Пароль пользователя с правами создания БД и пользователя ccdisk
+Пароль пользователя с правами создания БД и пользователя ccdisk.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/2338b1fd-8a30-4e90-93b5-5976a0f822f2)
 
-Пароль для пользователя БД Корпоративный сервер 2024
+Пароль для пользователя БД Корпоративный сервер 2024.
 
-Укажите пароль для пользователя cddisk
+Укажите пароль для пользователя cddisk.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/75e1d240-bfc7-4ca1-9121-0ab0c0434631)
 
-coremachinkey от CS
+coremachinkey от CS.
 
-Изменить на актуальный, если есть Р7-Офис Корпоративный сервер и нажмите ОК, если нет, нажмите Ок без редактирования
+Изменить на актуальный, если есть Р7-Офис Корпоративный сервер и нажмите ОК, если нет, нажмите Ок без редактирования.
 
 нажмите Ок
 
@@ -263,7 +266,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/f84b01c3-e939-4a99-be2d-d167faaec63c)
 
-Укажите домен. Необходимо указать домен, в котором у Вас созданы записи
+Укажите домен. Необходимо указать домен, в котором у Вас созданы записи.
 
 Например, it.company.lan
 
@@ -271,9 +274,9 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/66be4d92-4f9d-4209-87bf-a61562ce9f6c)
 
-Префикс Р7-Диск
+Префикс Р7-Диск.
 
-Указать имя, которое будет открываться в браузере для веб р7-Диска
+Указать имя, которое будет открываться в браузере для веб р7-Диска.
 
 Например, если Вы хотите, чтобы открылся Р7-Диск по адресу cdisk.it.company.lan, то указать нужно именно cdisk, без указания домена.
 
@@ -283,7 +286,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/b59d6e51-4f55-464a-bb56-5085017c1fc2)
 
-Префикс Р7-Админ
+Префикс Р7-Админ.
 
 Указать имя, которое будет открываться в браузере для веб админской панели.
 
@@ -295,7 +298,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/753c4eb6-0801-4e24-91c8-edfeaae3a5eb)
 
-Префикс Р7-Контакты
+Префикс Р7-Контакты.
 
 Указать имя, которое будет открываться в браузере для веб клиента контактов.
 
@@ -307,7 +310,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/40ba1167-8e99-40dd-b440-ebda9a94799e)
 
-Префикс Р7-Почта
+Префикс Р7-Почта.
 
 Указать имя, которое будет открываться в браузере для веб клиента почты.
 
@@ -319,7 +322,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/9415ae9e-2b7b-438e-8bcb-8a4b74946558)
 
-Префикс Р7-Почта
+Префикс Р7-Почта.
 
 Указать имя, которое будет открываться в браузере для веб клиента почты.
 
@@ -331,7 +334,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/4bdbbe02-4d4b-4fa2-ab72-f08ebbdcb47d)
 
-Префикс Р7-Календарь
+Префикс Р7-Календарь.
 
 Укажите имя, которое будет открываться в браузере для веб календаря.
 
@@ -343,7 +346,7 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/2f42133d-8ec8-4d67-86d9-8a73e9b7e166)
 
-Префикс Р7-Сервер Документов
+Префикс Р7-Сервер Документов.
 
 Указать имя, которое будет открываться в браузере для веба сервера документом.
 
@@ -371,15 +374,15 @@ coremachinkey от CS
 
 В данном окне надо внести имя вашего MX почтового сервера, который прописан в записи А на контроллере домена. 
 
-В моём случае запись А в DNS такая ``A  r7mx1.it.company.lan  TTL``
+В моём случае запись А в DNS такая ``A  r7mx1.it.company.lan  TTL``.
 
-Если MX запись выглядит, как r7mx1.it.company.lan, то ввести необходимо просто hostname почтового сервера **r7mx1**
+Если MX запись выглядит, как ``r7mx1.it.company.lan``, то ввести необходимо просто hostname почтового сервера **r7mx1**.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/84aeb3b3-b18f-45fa-9db8-88dccae1f1aa)
 
-Укажите ip адрес
+Укажите ip адрес.
 
 Укажите внешний ip адрес сервера, для корректной работы почтового сервера.
 
@@ -389,27 +392,27 @@ coremachinkey от CS
 
 ![image](https://github.com/user-attachments/assets/61ee719d-51e6-406a-a17d-e23adf49774d)
 
-Пароль root для Postgresql
+Пароль root для Postgresql.
 
-Укажите пароль, который будет задан пользователю root Postgresql
+Укажите пароль, который будет задан пользователю root Postgresql.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/6c8fdf01-d493-4fbb-99e2-4b56596f149d)
 
-Установка SpamAssassin
+Установка SpamAssassin.
 
-Если требуется установка
+Если требуется установка.
 
-Выберите 1
+Выберите 1.
 
 <hr>
 
 ![image](https://github.com/user-attachments/assets/32a3af30-3c02-43f5-aabb-90ed074ee08a)
 
-Установка OpenDKIM
+Установка OpenDKIM.
 
-Если требуется установка. Выберите Да
+Если требуется установка. Выберите. Да
 
 <hr>
 
@@ -424,11 +427,11 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 **Перезагружаем севрвер**
 
-Проверяем работу службы `rabbitmq`
+Проверяем работу службы ``rabbitmq``.
 
 ![image](https://github.com/user-attachments/assets/3672e338-7388-4579-9480-13eba974e74d)
 
-Обратно раскомментируем шлюз и репозитории
+Обратно раскомментируем шлюз и репозитории.
 
 ![image](https://github.com/user-attachments/assets/228cff78-e77b-4ff6-8ead-7fe020f835c9)
 
@@ -460,7 +463,7 @@ https://admin.it.company.lan
 
 Создать почтового пользователя и проверить работу почты.
 
-Переходим во вкладку  ![image](https://github.com/user-attachments/assets/a143ef65-fa75-4438-9fd0-d4f45d8cd2c1) `Почта`
+Переходим во вкладку  ![image](https://github.com/user-attachments/assets/a143ef65-fa75-4438-9fd0-d4f45d8cd2c1) ``Почта``
 
 ![image](https://github.com/user-attachments/assets/0490e089-4f78-4ea4-b219-9c27a88d009e)
 
@@ -472,7 +475,7 @@ https://admin.it.company.lan
 
 >[!Warning]
 >После установки почтового сервера прописываем записи в DNS для работы почтового сервера.
->Необходимо добавить SRV записи IMAP, IMAPS, POP, SMTP и AUTODISCOVER для автоматического обнаружения протоколов. Создать файл autodiscover.xml.
+>Необходимо добавить SRV записи IMAP, IMAPS, POP, SMTP и AUTODISCOVER для автоматического обнаружения протоколов. Создать файл ``autodiscover.xml``.
 
 Остальные настройки находятся в файлах.
 
