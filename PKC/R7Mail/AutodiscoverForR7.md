@@ -63,6 +63,8 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
   </Response>
 </Autodiscover>
 ```
+![image](https://github.com/user-attachments/assets/28147b1b-8bdd-494b-8072-0065061a923f)
+
 ![image](https://github.com/user-attachments/assets/ed944f55-843d-466c-86ce-bc78d18d4d91)
 
 ---
