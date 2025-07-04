@@ -65,8 +65,6 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
 ```
 ![image](https://github.com/user-attachments/assets/28147b1b-8bdd-494b-8072-0065061a923f)
 
-![image](https://github.com/user-attachments/assets/ed944f55-843d-466c-86ce-bc78d18d4d91)
-
 ---
 
 #### 3.Настройка веб-сервера (Nginx)
@@ -100,7 +98,7 @@ server {
     }
 }
 ```
-![image](https://github.com/user-attachments/assets/3dfe412c-7be3-49fc-a115-6bd44d6bff08)
+![image](https://github.com/user-attachments/assets/9acdc8ab-133d-429e-b96b-7dba6c345054)
 
 Перезагрузите Nginx:  
 ```bash
@@ -109,7 +107,7 @@ nginx -t
 
 systemctl reload nginx
 ```
-![image](https://github.com/user-attachments/assets/ab1252d7-ca2b-4de7-87d6-5e1e295dd8cd)
+![image](https://github.com/user-attachments/assets/731787a0-0b67-4e4f-9128-ed25cf3b92bb)
 
 ---
 
@@ -141,6 +139,8 @@ systemctl reload nginx
 #### 5.Проверка работы
 1. **Тест в браузере**:  
    Откройте `https://autodiscover.it.company.lan/autodiscover/autodiscover.xml` → Должен отобразиться XML.
+
+![image](https://github.com/user-attachments/assets/6659354c-27e3-4c35-8ed0-da0c21139684)
 
 2. **Тест через Outlook**:
    ```powershell
