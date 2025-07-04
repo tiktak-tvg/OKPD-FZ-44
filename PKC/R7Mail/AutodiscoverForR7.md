@@ -30,11 +30,11 @@ Autodiscover в Р7 реализуется через **XML/JSON-файл** на
 
 Создайте папку `mkdir /var/www/autodiscover`
 
-![image](https://github.com/user-attachments/assets/19bd8513-16cb-4475-9a54-3bc4a709fc3f)
+![image](https://github.com/user-attachments/assets/eb247d73-330c-4c82-b018-c92849a7bf62)
 
 Создайте файл `touch /var/www/autodiscover/autodiscover.xml` 
 
-![image](https://github.com/user-attachments/assets/8f0332f6-9a89-4287-a723-131e17474bb4)
+![image](https://github.com/user-attachments/assets/1b5ea516-be5c-499d-af85-46d6dc67b9ee)
 
 Создайте файл `nano /var/www/autodiscover/autodiscover.xml` заполните содержимым:
 
