@@ -287,6 +287,8 @@ map {
   value_field = quota
 }
 ```
+![image](https://github.com/user-attachments/assets/7fe96da0-38cd-4084-a2ef-5ffcf55278c5)
+
 Откройте файл dovecot-pgsql.conf.
 ```bash
 nano /etc/dovecot/dovecot-pgsql.conf
@@ -295,6 +297,8 @@ nano /etc/dovecot/dovecot-pgsql.conf
 ```bash
 user_query = SELECT '/mail/%d/%u' as home, 'maildir:/mail/%d/%u' as mail, NULL AS uid, NULL AS gid, '*:storage=' || quota AS quota_rule FROM virtual_users WHERE email = '%u'
 ```
+![image](https://github.com/user-attachments/assets/817df5f3-ac57-4876-9e15-6f346133204a)
+
 Проверить квоты на почтовом ящике.
 ```bash
 doveadm quota get -u user@example.com
@@ -308,6 +312,8 @@ JWT-токен.
 cat /opt/r7-office/mailserver_api/jwt_token
 ```
 >Сохраните вывод команды для дальнейшего использования Api. 
+
+![image](https://github.com/user-attachments/assets/f9468167-0106-484b-a096-cdaef601d169)
 
 #### Примеры запросов к API для работы почтовым сервером.
 Описание API методов работы с почтовым сервером Р7.<br>
