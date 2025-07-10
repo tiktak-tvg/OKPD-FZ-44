@@ -271,6 +271,7 @@ cat /opt/r7-office/mailserver_api/jwt_token
 Описание API методов работы с почтовым сервером Р7.<br>
 Можно отправлять POST-запросы с данными.<br> 
 Описание методов REST API.<br>
+
 **Создание почтового ящика.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"test@domain.ru","password":"mail_password"}&apos; https://admin.domain.ru/apimail/create_user --user admin:PassworD
@@ -345,7 +346,6 @@ domain — имя домена (например, new-domain.ru).
 https://admin.domain.ru/apimail/get_dkim — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-
 **Удаление домена (c удалением данных opendkim).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"name":"domain.ru"}&apos; https://admin.domain.ru/apimail/delete_domain --user admin:PassworD
