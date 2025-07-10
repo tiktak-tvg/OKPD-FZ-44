@@ -3,10 +3,14 @@
 ```bash
 wget https://download.r7-office.ru/mailserver/mailserver_api_pgsql_astra5.tar.gz
 ```
+![image](https://github.com/user-attachments/assets/5bf17a9a-bdb4-43db-a2fd-823feb9e55d2)
+
 Распаковать архив с api и добавить сервис как службу
 ```bash
 tar -xzvf mailserver_api_pgsql_astra5.tar.gz --selinux -C /
 ```
+![image](https://github.com/user-attachments/assets/922249c4-6d93-428c-b7f5-96ea7c2b589d)
+
 Создайте службу systemd для почтового api:
 ```bash
 nano /etc/systemd/system/mailserver_api.service
