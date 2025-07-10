@@ -332,6 +332,11 @@ password — пароль для пользователя почтового я
 https://admin.domain.ru/apimail/create_user — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
+*Пример:*
+```bash
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJyZW1vdmVfYWNsIiwiZ2V0X2FjbCIsImdldF9saW1pdHMiLCJzZXRfc2VuZF9saW1pdCIsImRlbGV0ZV9saW1pdCIsIm1vZGlmeV9saXN0IiwibWFpbF9xdWV1ZSJdfQ.3C3E5gnR7Xseq4RoNxr0TcHZ2N24VtCu8" -d '{"old_email":"test1@ald.vit.lan","new_email":"newtest@ald.vit.lan"}' https://admin.ald.vit.lan/apimail/change_email --user admin:passwd
+```
 
 **Изменение пароля почтового ящика.**
 
