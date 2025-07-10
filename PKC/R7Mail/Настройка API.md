@@ -498,8 +498,8 @@ admin:PassworD  - пользователь и пароль созданные �
 
 **Получение ACL для общего почтового ящика.**
 
-```bash
 Метод возвращает права доступа (ACL) для указанного пользователя к общему почтовому ящику.
+```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"shared_mailbox":"shared@domain.ru","user":"user@domain.ru"}&apos; https://admin.domain.ru/apimail/get_acl --user admin:PassworD
 ```
 *Описание:*
