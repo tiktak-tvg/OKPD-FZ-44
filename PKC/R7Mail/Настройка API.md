@@ -178,6 +178,8 @@ systemctl status dovecot postfix
 ```bash
 apt install dovecot-ldap slapd ldap-utils libldap2-dev
 ```
+![image](https://github.com/user-attachments/assets/1ee07c67-fb94-4b1b-b6b5-644380b05824)
+
 Создайте файл подключения к `LDAP`<br>
 Открываем в редакторе `nano /etc/dovecot/dovecot-ldap.conf`
  
@@ -215,6 +217,8 @@ pass_filter — фильтр для поиска паролей пользова
 pass_attrs  — соответствие между атрибутами найденного объекта ldap и внутренними переменными пользователя Dovecot.
 default_pass_scheme — схема хранения паролей.
 ```
+![image](https://github.com/user-attachments/assets/760c840b-ebf5-4edd-953a-ccfbe6afc51c)
+
 Откройте в редакторе конфигурационный файл dovecot.conf `nano /etc/dovecot/dovecot.con`.
 
 ```bash
@@ -243,6 +247,8 @@ protocol lmtp {
  recipient_delimiter = +
 }
 ```
+![image](https://github.com/user-attachments/assets/f60685c1-3000-4215-b244-33fc99316a7b)
+
 В самом низу добавьте строки.
 ```bash
 service dict {
@@ -266,6 +272,8 @@ passdb {
  driver = ldap
  }
 ```
+![image](https://github.com/user-attachments/assets/fa1b89a9-80a2-496e-8a0f-e049f3d357bc)
+
 Отредактировать файл dovecot-dict-sql.conf.ext.
 ```bash
 nano /etc/dovecot/dovecot-dict-sql.conf.ext
