@@ -317,7 +317,7 @@ admin:PassworD  - пользователь и пароль созданные �
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"test@domain.ru"}&apos; https://admin.domain.ru/apimail/delete_user --user admin:PassworD
 ``` 
-Описание:
+*Описание:*
 ```bash
 email — почтовый ящик для удаления.
 https://admin.domain.ru/apimail/delete_user — адрес вызова API.
