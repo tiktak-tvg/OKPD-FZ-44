@@ -46,11 +46,15 @@ systemctl enable mailserver_api --now
 ```bash
 systemctl status mailserver_api
 ```
-Установка htpasswd на сервер
+![image](https://github.com/user-attachments/assets/6146a54d-8c9e-4dde-8418-fa0a8a996a71)
+
+#### Установка htpasswd на сервер.
 Для deb:
 ```bash
 apt-get install apache2-utils
 ```
+![image](https://github.com/user-attachments/assets/4a0a4b26-5647-42cf-b0b0-b6267b8860a0)
+
 Создание пользователя и пароля.
 ```bash
 sudo htpasswd -c /etc/nginx/auth.basic admin
@@ -71,10 +75,14 @@ sudo htpasswd -c /etc/nginx/auth.basic admin
 ```
 >если ПС находиться на другом сервере, то localhost измените на ip адрес сервера почтового сервера.
 
+![image](https://github.com/user-attachments/assets/ee43841b-cdf7-4104-9352-6e2b369c7632)
+
 Перезапустите nginx:
 ```bash
 nginx -s reload
 ```
+![image](https://github.com/user-attachments/assets/11c816b0-6e3b-4ab5-ae5e-3245276e07b1)
+
 Обновить БД для работы со всеми доступными методами `api` и функциональными возможностями почтового сервера
 ```bash
 wget http://download.r7-office.ru/mailserver/scripts/upgrate_mail_db.sh
@@ -83,6 +91,8 @@ sed -i 's/--username "\${DB_USER}"/--username postgres/g' ./upgrate_mail_db.sh
 далее
 sudo bash upgrate_mail_db.sh
 ```
+![image](https://github.com/user-attachments/assets/cad5ea93-3681-4ed1-9183-b8dea1070b6a)
+
 #### Установка и настройка модуля postfwd.
 
 >Установить зависимости для postfwd:
