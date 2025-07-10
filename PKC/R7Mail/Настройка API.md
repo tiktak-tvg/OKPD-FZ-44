@@ -271,7 +271,7 @@ cat /opt/r7-office/mailserver_api/jwt_token
 Описание API методов работы с почтовым сервером Р7.<br>
 Можно отправлять POST-запросы с данными.<br> 
 Описание методов REST API.<br>
-Создание почтового ящика.
+**Создание почтового ящика.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"test@domain.ru","password":"mail_password"}&apos; https://admin.domain.ru/apimail/create_user --user admin:PassworD
 ```
@@ -282,7 +282,7 @@ password — пароль для пользователя почтового я
 https://admin.domain.ru/apimail/create_user — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Изменение пароля почтового ящика.
+**Изменение пароля почтового ящика.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -d -H "jwt-auth: Bearer <jwt-token>” &apos;{"email":"test@domain.ru","password":"new_password"}&apos; https://admin.domain.ru/apimail/change_password --user admin:PassworD
 ```
@@ -293,7 +293,7 @@ password — новый пароль для пользователя почто
 https://admin.domain.ru/apimail/change_password — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Изменение имени почтового ящика (с копированием директории с почтовыми данными).
+**Изменение имени почтового ящика (с копированием директории с почтовыми данными).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"old_email":"test@domain.ru","new_email":"test2@domain.ru"}&apos; https://admin.domain.ru/apimail/change_email --user admin:PassworD
 ``` 
@@ -304,7 +304,7 @@ new_email — новое имя почтового ящика.
 https://admin.domain.ru/apimail/change_email — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Удаление почтового ящика (с удалением данных почты).
+**Удаление почтового ящика (с удалением данных почты).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"test@domain.ru"}&apos; https://admin.domain.ru/apimail/delete_user --user admin:PassworD
 ``` 
@@ -314,7 +314,7 @@ email — почтовый ящик для удаления.
 https://admin.domain.ru/apimail/delete_user — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Создание нового алиаса.
+**Создание нового алиаса.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"alias":"news@domain.ru","email":"user@domain.ru"}&apos; https://admin.domain.ru/apimail/create_alias --user admin:PassworD
 ```
@@ -325,7 +325,7 @@ email — основной почтовый ящик, на который бу�
 https://admin.domain.ru/apimail/create_alias — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Создание нового домена (c генерацией ключа opendkim).
+**Создание нового домена (c генерацией ключа opendkim).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"name":"new-domain.ru"}&apos; https://admin.domain.ru/apimail/create_domain --user admin:PassworD
 ``` 
@@ -335,7 +335,7 @@ name — имя нового домена (например, new-domain.ru).
 https://admin.domain.ru/apimail/create_domain — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Получение DKIM записи домена (если необходимо добавить в глобальный DNS, для повышения доверия к домену).
+**Получение DKIM записи домена (если необходимо добавить в глобальный DNS, для повышения доверия к домену).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"domain":"new-domain.ru"}&apos; https://admin.domain.ru/apimail/get_dkim --user admin:PassworD
 ``` 
@@ -344,8 +344,9 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token
 domain — имя домена (например, new-domain.ru).
 https://admin.domain.ru/apimail/get_dkim — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
-``` 
-Удаление домена (c удалением данных opendkim).
+```
+
+**Удаление домена (c удалением данных opendkim).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"name":"domain.ru"}&apos; https://admin.domain.ru/apimail/delete_domain --user admin:PassworD
 ``` 
@@ -355,7 +356,7 @@ name — имя домена для удаления.
 https://admin.domain.ru/apimail/delete_domain — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ``` 
-Создание алиаса с несколькими получателями.
+**Создание алиаса с несколькими получателями.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"source":"news_users@domain.ru","destinations":"user3@domain.ru,user4@domain.ru"}&apos; https://admin.domain.ru/apimail/create_alias_multy --user admin:PassworD
 ```
@@ -366,7 +367,7 @@ destinations — список получателей, разделенных з
 https://admin.domain.ru/apimail/create_alias_multy — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```
-Изменение алиаса (для одного получателя).
+**Изменение алиаса (для одного получателя).**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"source":"news@domain.ru","destinations":"news5@domain.ru"}&apos; 
 https://admin.domain.ru/apimail/change_alias --user admin:PassworD
@@ -378,7 +379,7 @@ destinations — новый получатель для алиаса.
 https://admin.domain.ru/apimail/change_alias — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ``` 
-Удаление алиаса
+**Удаление алиаса.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"alias":"news@domain.ru"}&apos; https://admin.domain.ru/apimail/delete_alias --user admin:PassworD
 ``` 
@@ -388,7 +389,7 @@ alias — адрес алиаса для удаления.
 https://admin.domain.ru/apimail/delete_alias — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ```  
-Проверка наличия почтового ящика.
+**Проверка наличия почтового ящика.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"user@domain.ru"}&apos; https://admin.domain.ru/apimail/check_email --user admin:PassworD
 ``` 
@@ -398,7 +399,7 @@ email — почтовый ящик для проверки.
 https://admin.domain.ru/apimail/check_email — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ``` 
-Получение информации по объёму почтового ящика.
+**Получение информации по объёму почтового ящика.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"user@domain.ru"}&apos; https://admin.domain.ru/apimail/mailbox_size --user admin:PassworD
 ``` 
@@ -408,7 +409,7 @@ email — почтовый ящик для получения информац�
 https://admin.domain.ru/apimail/mailbox_size — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
 ``` 
-Установка квоты для почтового ящика.
+**Установка квоты для почтового ящика.**
 ```bash
 Метод позволяет установить квоту (ограничение на объем хранилища) для указанного почтового ящика.
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"email":"user@domain.ru","quota":1024}&apos; https://admin.domain.ru/apimail/set_quota --user admin:PassworD
@@ -421,8 +422,7 @@ admin:PassworD  - пользователь и пароль созданные �
 Адрес вызова API:
  https://admin.domain.ru/apimail/set_quota
 ``` 
-Создание общего почтового ящика.
-```bash
+**Создание общего почтового ящика.**<br>
 Метод создает общий почтовый ящик и предоставляет доступ к нему указанному пользователю.
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"from_user":"shared@domain.ru","to_user":"user@domain.ru","password":"shared_password"}&apos; https://admin.domain.ru/apimail/create_shared_mailbox --user admin:PassworD
 ``` 
@@ -435,8 +435,7 @@ admin:PassworD  - пользователь и пароль созданные �
 Адрес вызова API:
  https://admin.domain.ru/apimail/create_shared_mailbox
 ``` 
-Добавление ACL для общего почтового ящика.
-```bash
+**Добавление ACL для общего почтового ящика.**<br>
 Метод добавляет права доступа (ACL) для указанного пользователя к общему почтовому ящику.
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"shared_mailbox":"shared@domain.ru","user":"user@domain.ru","rights":"read write"}&apos; https://admin.domain.ru/apimail/add_acl --user admin:PassworD
 ``` 
@@ -449,7 +448,7 @@ admin:PassworD  - пользователь и пароль созданные �
 Адрес вызова API:
  https://admin.domain.ru/apimail/add_acl
 ```  
-Удаление ACL для общего почтового ящика.
+**Удаление ACL для общего почтового ящика.**
 ```bash
 Метод удаляет права доступа (ACL) для указанного пользователя к общему почтовому ящику.
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"shared_mailbox":"shared@domain.ru","user":"user@domain.ru","rights":"read write"}&apos; https://admin.domain.ru/apimail/remove_acl --user admin:PassworD
@@ -460,10 +459,9 @@ shared_mailbox — имя общего почтового ящика.
 user — пользователь, у которого удаляются права.
 rights — права доступа, которые необходимо удалить (например, read, write).
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
-Адрес вызова API:
- https://admin.domain.ru/apimail/remove_acl
+Адрес вызова API: https://admin.domain.ru/apimail/remove_acl
 ``` 
-Получение ACL для общего почтового ящика.
+**Получение ACL для общего почтового ящика.**
 ```bash
 Метод возвращает права доступа (ACL) для указанного пользователя к общему почтовому ящику.
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"shared_mailbox":"shared@domain.ru","user":"user@domain.ru"}&apos; https://admin.domain.ru/apimail/get_acl --user admin:PassworD
@@ -473,10 +471,9 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token
 shared_mailbox — имя общего почтового ящика.
 user — пользователь, для которого запрашиваются права.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
-Адрес вызова API:
- https://admin.domain.ru/apimail/get_acl
+Адрес вызова API: https://admin.domain.ru/apimail/get_acl
 ``` 
-Получение очереди почтового сервера.<br>
+**Получение очереди почтового сервера.**<br>
 Метод возвращает состояние очереди почтового сервера.
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -H "Authorization: Bearer <твой_JWT_токен>" https://admin.domain.ru/apimail/mail_queue --user admin:PassworD
@@ -485,10 +482,9 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token
 ```bash
 user — пользователь, для которого запрашиваются права.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
-Адрес вызова API:
- https://admin.domain.ru/apimail/mail_queue
+Адрес вызова API: https://admin.domain.ru/apimail/mail_queue
 ``` 
-Получение списка лимитов на отправку почты.<br>
+**Получение списка лимитов на отправку почты.**<br>
 Метод возвращает лимиты установленные на ящик, домен, общие.
 ```bash
 curl -X POST -H "Content-Type: application/json"  -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"identifier":"mailbox@domain.ru","id_type":"email","limit_type":"send"}&apos; https://admin.domain.ru/apimail/get_limits --user admin:PassworD
@@ -500,10 +496,9 @@ id_type – указываем для чего правила ("email", "domain"
 limit_type – указываем тип лимита ("send", "rcpt")
 user — пользователь, для которого запрашиваются права.
 admin:PassworD  - пользователь и пароль созданные в пункте 11.2
-Адрес вызова API:
- https://admin.domain.ru/apimail/get_limits
+Адрес вызова API: https://admin.domain.ru/apimail/get_limits
 ```
-Установка лимитов на отправку почту.<br>
+**Установка лимитов на отправку почту.**<br>
 Метод возвращает лимиты установленные на ящик, домен, общие.
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"identifier":"mailbox@domain.ru","id_type":"email","limit": 1,"period":"hour","limit_type":"send"}&apos; https://admin.domain.ru/apimail/set_send_limit --user admin:PassworD
@@ -520,7 +515,7 @@ admin:PassworD  - пользователь и пароль созданные �
 Адрес вызова API:
  https://admin.domain.ru/apimail/set_send_limit
 ``` 
-Удаление лимитов на отправку почты.<br>
+**Удаление лимитов на отправку почты.**<br>
 Метод возвращает лимиты установленные на ящик, домен, общие.
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{"identifier":"mailbox@domain.ru","id_type":"email","limit_type":"send"}&apos; https://admin.domain.ru/apimail/delete_limit --user admin:PassworD
@@ -535,7 +530,7 @@ admin:PassworD  - пользователь и пароль созданные �
 Адрес вызова API:
  https://admin.domain.ru/apimail/delete_limit
 ``` 
-Управление черным или белым списком.<br>
+**Управление черным или белым списком.**<br>
 Метод добавляет почтовый адрес, домен или ip-адрес в черный или белый список список.<br>
 Добавление в черный список.
 ```bash
@@ -545,7 +540,7 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token
     "list_type": "blacklist"
 }&apos; https://admin.domain.ru/apimail/modify_list --user admin:PassworD
 ``` 
-Удаление из белого списка.
+**Удаление из белого списка.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token>” -d &apos;{
     "action": "remove",
@@ -558,10 +553,9 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <jwt-token
 action — add (добавить) или remove (удалить).
 entry — email, домен или IP-адрес.
 ist_type — blacklist (черный список) или whitelist (белый список).
-Адрес вызова API:
- https://admin.domain.ru/apimail/modify_list
+Адрес вызова API: https://admin.domain.ru/apimail/modify_list
 ```	
-Управление правами пользователей (JWT-аутентификация).<br>
+**Управление правами пользователей (JWT-аутентификация).**<br>
 Выдача токена.
 ```bash
 curl -X POST -H "Content-Type: application/json" -d &apos;{
@@ -572,7 +566,7 @@ curl -X POST -H "Content-Type: application/json" -d &apos;{
 ```bash
 email — email пользователя, для которого создается JWT-токен.
 ``` 
-Назначение прав пользователю.
+**Назначение прав пользователю.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -d &apos;{
     "email": "user@domain.ru",
@@ -584,7 +578,7 @@ curl -X POST -H "Content-Type: application/json" -d &apos;{
 email — email пользователя.
 scope — назначаемое право (например, create_user, delete_user).
 ``` 
-Удаление прав у пользователя.
+**Удаление прав у пользователя.**
 ```bash
 curl -X POST -H "Content-Type: application/json" -d &apos;{
     "email": "user@domain.ru",
@@ -596,7 +590,7 @@ curl -X POST -H "Content-Type: application/json" -d &apos;{
 email — email пользователя.
 scope — назначаемое право (например, create_user, delete_user).	
 ```
-Получение списка администраторов для управления правами:
+**Получение списка администраторов для управления правами:**
     • Запрашивает список пользователей, у которых есть права администратора.
     • Возвращает массив email-адресов.
 ```bash
