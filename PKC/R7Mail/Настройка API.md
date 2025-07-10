@@ -32,6 +32,8 @@ RestartSec=5s
 [Install]
 WantedBy=multi-user.target
 ```
+![image](https://github.com/user-attachments/assets/ea2470f1-a9cf-4e62-b579-5b378330c578)
+
 Перезагрузите systemd:
 ```bash
 systemctl daemon-reload
