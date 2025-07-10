@@ -100,12 +100,16 @@ sudo bash upgrate_mail_db.sh
 ```bash
 apt install libcgi-pm-perl libio-multiplex-perl libnet-cidr-perl libnet-server-perl
 ```
+![image](https://github.com/user-attachments/assets/ee3f9568-87b3-4cd6-8424-17b50eb7593b)
+
 Скачать и установить пакет postfwd:
 ```bash
 wget http://download.r7-office.ru/mailserver/pkg/postfwd_1.35-8_all.deb
 Далее распаковываем и устанавливаем
 apt install ./postfwd_1.35-8_all.deb
 ```
+![image](https://github.com/user-attachments/assets/521e73ad-0912-427b-b3e2-b3bb726f17f0)
+
 Настроить модуль postfwd.
 ```bash
 touch /etc/postfix/postfwd.cf 
@@ -117,10 +121,14 @@ touch /etc/postfix/postfwd.cf
 systemctl start postfwd
 systemctl enable postfwd
 ```
+![image](https://github.com/user-attachments/assets/89a16920-5958-442a-b73d-27b472dbe672)
+
 Проверить слушается порт 10040:
 ```bash
-ss -tulpn
+ss -tulpn | grep 10040
 ```
+![image](https://github.com/user-attachments/assets/a8cd76cf-9dd9-4e26-b2eb-bb6c70b00af6)
+
 Настроить `postfix` для работы c `postfwd`.
 
 Открываем в редакторе `nano /etc/postfix/main.cf`
@@ -133,6 +141,8 @@ smtpd_recipient_restrictions = permit_sasl_authenticated,
  reject_multi_recipient_bounce,
  reject_unauth_destination,
 ```
+![image](https://github.com/user-attachments/assets/0b66f642-0528-442c-b679-e9d474926f4e)
+
 Ниже добавить:
 ```bash
 # Подключаем postfwd и разрешаем отправку только авторизированным пользователям.
@@ -151,6 +161,8 @@ reject_unknown_sender_domain
 # Подключаем postfwd
 smtpd_end_of_data_restrictions = check_policy_service inet:127.0.0.1:10040
 ```
+![image](https://github.com/user-attachments/assets/91785ea1-e4d9-47aa-9217-c536e5aea2f9)
+
 Перезапустите службы Dovecot и Postfix:
 ```bash
 systemctl restart dovecot postfix
@@ -159,6 +171,8 @@ systemctl restart dovecot postfix
 ```bash
 systemctl status dovecot postfix
 ```
+![image](https://github.com/user-attachments/assets/c47e858a-d03a-4a8f-a7ca-02bf661c6368)
+
 #### Настройка модуля quota для dovecot.
 Установите пакеты для возможности работы по протоку `ldap`.
 ```bash
