@@ -313,6 +313,372 @@ Self-heal Daemon on gluster2                N/A       N/A        Y       20215
 Task Status of Volume mail_volume
 ------------------------------------------------------------------------------
 There are no active volume tasks
+```
+
+###### Создаём каталог и монтируем
+
+    • На всех серверах
 ```bash
+mkdir /mail
+mount.glusterfs localhost:/mail_volume /mail
+```
+###### Добавляем в автозагрузку
+```bash
+echo 'localhost:/mail_volume /mail glusterfs defaults,_netdev,backupvolfile-server=localhost 0 0' | sudo tee -a /etc/fstab
+```
+###### Добавляем задание для перезапуска glusterfs, в случае перезагрузки или выключения питания
+
+    • На всех серверах
+
+После перезагрузки сервера, могут наблюдаться проблемы с синхронизацией `glusterfs`. Поэтому данный метод решает эту проблему.
+```bash
+echo "@reboot sleep 30 && systemctl restart glusterd.service" | crontab -
+```
+    • На данном моменте настройка закончена.
+
+#### Настройка брандмауэра (firewalld)
+
+###### Устанавливаем и запускаем
+```bash
+apt install firewalld -y
+systemctl start firewalld
+```
+##### Добавляем правила
+###### Для Dovecot и Postfix
+```bash
+firewall-cmd --zone=public --add-service=smtp # 25 порт
+firewall-cmd --zone=public --add-service=smtps # 465 порт
+firewall-cmd --zone=public --add-service=imap # 143 порт
+firewall-cmd --zone=public --add-service=imaps # 993 порт
+firewall-cmd --zone=public --add-service=smtp-submission # 587 порт
+# SSH
+firewall-cmd --zone=public --add-service=ssh # 22 порт ssh
+firewall-cmd --zone=public --add-port=2345/tcp # пример добавления любых tcp портов
+# GlusterFS
+firewall-cmd --zone=internal --add-service=glusterfs
+firewall-cmd --zone=internal --add-port=49150-49160/tcp # Порт из п.3.3 (первоначально 49152), на нём слушается volume /mail_volume. Если будете создавать новые, то они будут
+```
+
+занимать следующие порты по порядку#PgSQL
+```bash
+firewall-cmd --zone=internal --add-service=pgsql
+```
+###### Добавляем с какого диапозона или ip возможно подключение к PgSQL и GlusterFS
+```bash
+firewall-cmd --zone=internal --add-source=192.168.25.0/24
+```
+###### Добавляем в автозагрузку
+```bash
+sudo systemctl enable --now firewalld
+```
+###### Проверяем правила, лишние порты и сервисы можете удалить
+```bash
+firewall-cmd --zone=public --list-all
+firewall-cmd --zone=internal --list-all
+```
+###### Применяем правила на постоянное использование
+```bash
+firewall-cmd --runtime-to-permanent # применения правил на постоянной основе
+firewall-cmd --reload # перезагружаем firewalld
+```
+##### Расшифровка почтовых портов:
+```bash
+| 143 | IMAP через STARTTLS |
+| 587 | SMTP через STARTTLS |
+| 993 | IMAP через SSL/TLS |
+| 465 | SMTP через SSL/TLS |
+```
+На Astra Linux Orel 1.7.5 необходимо открывать и использовать порты 993 и 465 для протокола SSL/TLS
+
+##### Настройка и конфигурация Postfix
+ 
+    • На всех нодах
+
+Для настройки Postfix, внесем изменения (сменив домен на свой) Копируем файл /etc/postfix/main.cf (все конфигурационные файлы задействованные при установки находяться в 
+```bash
+mailserver / config gitlab):
+yes | cp /mnt/mailserver/config/main_pgsql.cf /etc/postfix/main.cf
+sudo nano /etc/postfix/main.cf
+```
+Необходимо поправить параметры, в строках:
+```bash
+myhostname = mx1.domain.ru
+mydomain = domain.ru
+```
+где
+- mx1.domain.ru - А запись почтового сервера в DNS.
+- domain.ru - Ваш домен.
+
+Копируем файл конфигурации /etc/postfix/master.cf:
+```bash
+yes | cp /mnt/mailserver/config/master.cf /etc/postfix/
+```
+Править не нужно
+
+##### Скопируем и отредактируем конфигурационные файлы 
+
+При помощи которых Postfix сможет обращаться к базе данных MariaDB (если пользователь с правами в БД был добавлен иной, не postfix, учитывайте это и измените пароль после копирования этих файлов, необходимо отредактировать параметр:
+password, если в п.2.4 указали отличный от 'password'):
+```bash
+sudo mkdir /etc/postfix/pgsql && cp /mnt/mailserver/config/pgsql/* /etc/postfix/pgsql/ && chmod 640 -R /etc/postfix/pgsql/
+sudo vi /etc/postfix/pgsql/virtual_alias_maps.cf
+sudo vi /etc/postfix/pgsql/virtual_mailbox_domains.cf
+sudo vi /etc/postfix/pgsql/virtual_mailbox_maps.cf
+```
+##### Необходимо положить или сгенерировать сертификаты домена.
+Вам необходимо положить сертификаты по пути `/etc/ssl/`,
+где
+
+- mail_cert.pem - ключ с полной цепочкой сертификатов,
+- mail_key.pem - закрытый ключ.
+
+##### Скопируем файл tls_policy_maps 
+С помощью которого можно вручную задавать версию tls протокола для общения серверов, либо полностью отключать его. Это иногда бывает нужно, если подключаешься к очень старому серверу, который не поддерживает современные протоколы. Приходится использовать нешифрованное подключение:
+```bash
+cp /mnt/mailserver/config/tls_policy_maps /etc/postfix/
+postmap /etc/postfix/tls_policy_maps
+```
+#### Настройка и интеграция служб Dovecot 
+
+    • На всех нодах
+
+##### Создадим специализированную группу и пользователя для работы с Dovecot с указанными в конфиге uid 1100. 
+Если у вас уже занят этот uid, то везде замените его на другой или удалите пользователя с uid 1100, если он вам не нужен:
+```bash
+groupadd -g 1100 vmail
+mkdir /mail
+useradd -d /mail -g 1100 -u 1100 vmail
+usermod -a -G dovecot vmail
+chown vmail:vmail /mail
+```
+##### Скопируем и отредактируем конфигурационный файл /etc/dovecot/dovecot.conf 
+В который впишем настройки сервиса (меняем домен в строке `auth_default_realm = `).
+ Обратите внимание, что сертификат из переменных `ssl_key` и `ssl_cert` будет использоваться тот же самый, который был сгенерирован для `Postfix`
+```bash
+yes | cp /mnt/mailserver/config/dovecot_pgsql.conf /etc/dovecot/dovecot.conf
+sudo vi /etc/dovecot/dovecot.conf
+```
+Заменяем параметр в строке:
+```bash
+auth_default_realm = domain.ru.
+```
+Скопируем и отредактируем конфигурацию для подключения к базе данных PostgreSQL:
+```bash
+cp /mnt/mailserver/config/dovecot-pgsql.conf /etc/dovecot/ && chmod 640 /etc/dovecot/dovecot-pgsql.conf
+sudo nano /etc/dovecot/dovecot-pgsql.conf
+```
+Заменяем параметр в строке:
+```bash
+           password=<пароль из п.2.3>
+cp /mnt/mailserver/config/dovecot-dict-sql.conf.ext /etc/dovecot/ && chmod 640 /etc/dovecot/dovecot-dict-sql.conf.ext
+sudo vi /etc/dovecot/dovecot-dict-sql.conf.ext
+```
+Заменяем параметр в строке:
+```bash
+           password=<пароль из п.2.3>
+```
+###### Создадим директорию и файлы для логов:
+```bash
+mkdir /var/log/dovecot
+touch /var/log/dovecot/{main.log,info.log,debug.log,lda-errors.log,lda-deliver.log,lmtp.log}
+chown -R vmail:dovecot /var/log/dovecot
+```
+###### Создаем служебную папку для плагина acl:
+   
+    • Достаточно выполнить на одной ноде
+```bash    
+mkdir /mail/shared-folders
+chown -R vmail:vmail /mail
+```
+###### На этом основная настройка почтового сервера на базе postfix и dovecot завершена. 
+Можно запускать службы и проверять работу системы:
+```bash
+sudo postfix check
+systemctl reload postfix
+systemctl start dovecot
+systemctl enable postfix
+systemctl enable dovecot
+```
+#### Создание почтовых ящиков
+###### Создаём файл паролей для PostgreSQL и меняем права на него:
+```bash
+awk -F '[= ]+' 'BEGIN {OFS=":"} /^connect/ {print "127.0.0.1", "5432", $5, $7, $9}' /etc/dovecot/dovecot-pgsql.conf >> ~/.pgpass 
+chmod 600 ~/.pgpass
+```
+Необходимо для возможности запускать скрипты без необходимости ввода пароля пользователя.
+###### Запускаем скрипт на создание почтового ящика:
+Скачайте скрипты по ссылке `wget https://download.r7-office.ru/mailserver/operations_mailserver_db-pgsql.tar.gz` и распакуйте архив (например так: tar -xzf operations_mailserver_db-pgsql.tar.gz). 
+Ниже команда, как пример, создания пользователя. 
+```bash
+bash operations_mailserver_db-pgsql-mailserver/mailserver/create_user.sh user@your-domain.ru password
+```
+Инструкция по скриптам: `https://nct.r7-office.ru/doc.html?uid=627413bd-f709-4d80-a633-7701d3cde3d9_13264`
+
+где вместо user@your-domain.ru указываете необходимое наименование для почтового ящика, а также password указываете пароль для него.<br>
+Разрешается использовать только те спецсимволы при установке пароля, что указаны ниже:
+```bash
+~ @ # % ^ * _ + = - ? : {  } [ ] \ /
+```
+#### Установка спам-фильтра Spamassassin (опционально).
+###### Установим пакеты Spamassassin:
+```bash
+sudo apt install spamassassin spamc -y
+```
+###### Во время установки автоматически создался пользователь debian-spamd.
+В файле `/etc/default/spamassassin` включим обновление спам фильтров:
+```bash
+yes | cp /mnt/mailserver/config/spamassassin/spamassassin /etc/default/
+cat /etc/default/spamassassin
+```
+##### Проверим, что данные параметры есть в конфиге
+```bash
+ENABLED=0
+
+OPTIONS="--create-prefs --max-children 5 --helper-home-dir --username debian-spamd -s /var/log/spamd.log"
+
+CRON=1
+```
+###### Отредактируем файл /etc/spamassassin/local.cf:
+```bash
+yes | cp /mnt/mailserver/config/spamassassin/local.cf /etc/spamassassin/
+cat /etc/spamassassin/local.cf
+```
+##### Проверим данные
+```bash
+rewrite_header Subject *****SPAM*****
+report_safe 0
+required_score 5.0
+use_bayes 1
+use_bayes_rules 1
+bayes_auto_learn 1
+skip_rbl_checks 0
+use_razor2 0
+use_pyzor 0
+```
+###### Скопируем файл /etc/postfix/master.cf:
+```bash
+yes | cp /mnt/mailserver/config/spamassassin/master.cf /etc/postfix/
+```
+
+Проверим конфигурацию Postfix и перезапустим его чтобы применить изменения:
+```bash
+postfix check
+systemctl restart postfix.service
+systemctl status postfix.service
+```
+###### Активируем автозапуск spamassassin при запуске операционной системы и запустим его:
+```bash
+systemctl enable spamassassin.service
+systemctl restart spamassassin.service
+systemctl status spamassassin.service
+```
+#### Настройка дополнительных записей
+    • Выполняется на одной ноде
+
+Чтобы письма не уходили в спам.
+###### Произведем настройку DKIM, SPF и DMARC записей. 
+Для генерации DKIM-ключа мы будем использовать утилиту opendkim. Установим утилиту, запустим ее и добавим в автозапуск.
+Добавим репозиторий deb для Astra linux:
+```bash
+echo "deb [trusted=yes] https://mirror.yandex.ru/debian/ buster main contrib non-free" | cat > /etc/apt/sources.list.d/debian.list && apt update
+```
+Установим утилиту, запустим ее и добавим в автозапуск.
+```bash
+sudo apt install opendkim opendkim-tools -y
+sudo systemctl restart opendkim
+sudo systemctl enable opendkim
+```
+Отключим репозиторий deb для Astra linux:.
+```bash
+sed -i '/^/s/^/#/' /etc/apt/sources.list.d/debian.list && apt update
+```
+###### Создадим специальную директорию с ключами, сгенерируем ключи (закрытый и открытый):
+```bash
+sudo mkdir -p /etc/opendkim/keys/<ваш домен>
+sudo opendkim-genkey --directory /etc/opendkim/keys/<ваш домен>/ --domain <ваш домен> --selector dkim
+sudo chown -R opendkim:opendkim /etc/opendkim/keys/<ваш домен>
+yes | cp /mnt/mailserver/config/opendkim.conf /etc/
+```
+###### Внесем изменения в конфигурационные файлы и перезапустим сервис:
+Добавить значение в файл TrustedHosts в виде *.example.ru
+```bash
+sudo vim /etc/opendkim/TrustedHosts
+*.<ваш домен>
+```
+Добавить значение в файл KeyTable в виде dkim._domainkey.example.ru example.ru:dkim:/etc/opendkim/keys/example.ru/dkim.private
+```bash
+sudo vim /etc/opendkim/KeyTable
+dkim._domainkey.<ваш домен> <ваш домен>:dkim:/etc/opendkim/keys/<ваш домен>/dkim.private
+```
+Добавить значение в файл SigningTable в виде "*@example.ru dkim._domainkey.example.ru"
+```bash
+sudo vim /etc/opendkim/SigningTable
+*@<ваш домен> dkim._domainkey.<ваш домен>
+```
+Заменяем файл /etc/default/opendkim
+```bash
+yes | cp /mnt/mailserver/config/opendkim /etc/default/
+```
+Перезапускаем сервисы
+```bash
+sudo systemctl restart opendkim
+sudo systemctl restart postfix
+```
+###### Теперь скопируем содержимое файла /etc/opendkim/keys/<ваш домен>/dkim.txt. 
+В нем содержится публичный ключ, который необходимо указать в настройках домена. Копируем значение без кавычек, которое указано в круглых скобках и вставляем в значение новой TXT-записи в настройках DNS.
+```bash
+cat /etc/opendkim/keys/<ваш домен>/dkim.txt
+#
+"v=DKIM1; h=sha256; k=rsa; "           "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqocNoGi7+H7ZnvIBXEaTYmOM449kVkuOklkHnD3afPjNxrjD6kdVc8dpGItA676JLFXybNoNtm5CLLLOVNfpyifUiRiWskCGqAlfELVKm5byP9UYaE9xslLclcR7L6hOXnMYPJQrIx/5a1KKpW4bc4W80BVFhK6inYl8H2OU7AqSpVA7mz+VirQSb8dDrGTaAV2th/9ZTG0+ag"  
+```
+Добавляем в таком виде:
+    • Имя записи: dkim._domainkey, если уровень домена выше, то необходимо добавить значение из уровня выше, т.е. dkim._domainkey.test, при домене test.example.ru 
+    • Значение: 
+```bash    k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqocNoGi7+H7ZnvIBXEaTYmOM449kVkuOklkHnD3afPjNxrjD6kdVc8dpGItA676JLFXybNoNtm5CLLLOVNfpyifUiRiWskCGqAlfELVKm5byP9UYaE9xslLclcR7L6hOXnMYPJQrIx/5a1KKpW4bc4W80BVFhK6inYl8H2OU7AqSpVA7mz+VirQSb8dDrGTaAV2th/9ZTG0+ag
+```
+###### Произведем настройку DMARC. 
+Он позволяет настроить указание для других сервисов что делать с теми письмами, которые не были одобрены по итогу проверок DKIM и SPF. Самый оптимальный способ — это отправить уведомление администратору домена. Для этого также создаем новую TXT-запись.
+```bash
+v=DMARC1; p=none; rua=mailto:admin@<ваш домен>
+```
+Начните с p=none для сбора данных.
+
+После анализа отчетов перейдите на p=quarantine.
+
+Когда будете уверены в надежности ваших настроек, установите p=reject.
+
+#### Полезные команды
+###### Журнальные файлы (postfix logs) по умолчанию хранятся в файле mail.log, расположенном в подкаталоге /var/log/mail.log
+```bash
+cat /var/log/mail.log
+```
+###### Команда namei перечисляет все папки, ведущие к конечному файлу, а -lv отображает разрешения (права postfix должны быть drwxr-xr-x):
+```bash
+namei /etc/postfix/mysql/virtual_alias_maps.cf  -lv
+```
+###### postfix может начать жаловаться warning: symlink leaves directory: /etc/postfix/./makedefs.out исправим:
+```bash
+rm /etc/postfix/makedefs.out; ln /usr/share/postfix/makedefs.out /etc/postfix/makedefs.out
+```
+###### В случае нарушения реплики glusterfs в случае перезагрузки одного из серверов, выполните команду на всех серверах:
+```bash
+echo "@reboot sleep 30 && systemctl restart glusterd.service" | crontab -
+```
+###### Решить проблему Corrupted transaction log file (в логах postfix), Failed to map transaction log:
+```bash
+https://doc.dovecot.org/3.0/man/doveadm-force-resync.1/
+```
+
+На сервере с данной ошибкой необходимо выполнить команду:
+```bash
+doveadm force-resync -u user@domain.ru INBOX
+```
+Где `user@domain.ru` почтовая учетная запись, с ошибкой повреждения файла журнала транзакций.
+
+12 Схема работы (отказоустойчивая архитектура)
+
+<img width="831" height="1191" alt="image" src="https://github.com/user-attachments/assets/efaeedc9-4e89-4d03-8bca-74fa60728d3d" />
+
+
 
 
