@@ -245,6 +245,7 @@ second_ip_address gluster2
 Запускаем glusterfs.
 
     • На всех серверах
+    
 ```bash    
 systemctl start glusterd.service
 systemctl enable glusterd.service
@@ -271,10 +272,47 @@ Number of Peers: 1
 Hostname: gluster1
 Uuid: 7ecfa2d1-3394-4f15-a1f5-bba484f2bbef
 State: Peer in Cluster (Connected)
-```bash
+```
 На этом этапе два ваших сервера взаимодействуют и готовы к созданию томов хранения друг с другом.
 
+Создание тома хранения
 
+    • Выполняется на первом сервере
 
+Для создания тома вы будете использовать команду gluster volume create с таким общим синтаксисом:
+```bash
+sudo gluster volume create mail_volume replica 2 gluster{1,2}:/mail_volume force
+```
+Если том был создан успешно, вы увидите следующий вывод:
+```bash
+volume create: mail_volume: success: please start the volume to access data
+```
+На этом этапе ваш том создан, но еще не активирован. Вы можете запустить том и сделать его доступным для использования путем выполнения следующей команды с любого сервера 
+```bash
+Gluster:
+sudo gluster volume start mail_volume
+```
+Вы получите следующий вывод, если том запущен корректно:
+```bash
+volume start: mail_volume: success
+```  
+Затем проверьте, находится ли том в сети. Запустите следующую команду с любого из ваших узлов:
+```bash
+sudo gluster volume status
+```
+В результате вы увидите вывод, аналогичный данному:
+```bash
+Status of volume: mail
+Gluster process                             TCP Port  RDMA Port  Online  Pid
+------------------------------------------------------------------------------
+Brick gluster1:/mail                        49152     0          Y       4495
+Brick gluster2:/mail                        49152     0          Y       20192
+Self-heal Daemon on localhost               N/A       N/A        Y       4518
+Self-heal Daemon on gluster2                N/A       N/A        Y       20215
+
+Task Status of Volume mail_volume
+------------------------------------------------------------------------------
+There are no active volume tasks
+```bash
 
 
