@@ -104,7 +104,8 @@ sudo apt update && sudo apt install postgresql acl ca-certificates postfix postf
 ```bash
 postgresql-setup --initdb
 ```
->/usr/lib/postgresql/11/bin
+/usr/lib/postgresql/11/bin
+
     • На сервере №1 mx.r7mail.ru
     
 Запускаем PostgreSQL и добавляем её в автозагрузку:
@@ -187,30 +188,91 @@ systemctl restart postgresql
     • На сервере №2 mx1.r7mail.ru
 
 Удалите существующую директорию данных:
+```bash
 rm -rf /var/lib/pgsql/data
 или (в зависимости от версии)
 rm -rf  /var/lib/postgresql/11/main
+```
 
     • На сервере №2
 
 Создайте базовую резервную копию с мастера:
-
+```bash
 su - postgres -c "pg_basebackup --host=ip_srv1 --username=replication_user --pgdata=/var/lib/pgsql/data --wal-method=stream --write-recovery-conf"
 или (в зависимости от версии)
 su - postgres -c "pg_basebackup --host=ip_srv1 --username=replication_user --pgdata=/var/lib/postgresql/13/main --wal-method=stream --write-recovery-conf"
+```
 где,  ip_srv1 адрес внутренней сети первого почтового сервера, с master БД.
 
-3.11 Создайте файл recovery.conf в директории данных:
+Создайте файл recovery.conf в директории данных:
+```bash
 sudo vi /var/lib/pgsql/data/recovery.conf
+```
 Добавьте следующие строки:
+```bash
 standby_mode = 'on'
 primary_conninfo = 'host= ip_srv1 port=5432 user=replication_user password=replication_password'
 restore_command = 'cp /var/lib/pgsql/archivedir/%f %p'
-где,  ip_srv1 адрес внутренней сети первого почтового сервера, с master БД и replication_password заданный на этапе 2.6
-3.12 Запускаем PostgreSQL на slave и добавляем в автозагрузку:
-sudo systemctl enable --now postgresql
+```
+где,  ip_srv1 адрес внутренней сети первого почтового сервера, с master БД и replication_password заданный на этапе ранее
 
-3.13 Проверьте состояние репликации:
+Запускаем PostgreSQL на slave и добавляем в автозагрузку:
+```bash
+sudo systemctl enable --now postgresql
+```
+Проверьте состояние репликации:
+```bash
+sudo -u postgres psql -x -c 'select * from pg_stat_wal_receiver;'
+```
+Создание общей директории для синхронизации почты
+
+    • На всех серверах
+
+`nano /etc/hosts`
+```bash
+127.0.0.1       localhost
+first_ip_address  gluster1
+second_ip_address gluster2
+```
+Где
+    • first_ip_address - внутренний ip первого сервера, например 10.0.0.1
+    • second_ip_address - внутренний ip второго сервера, например 10.0.0.2 Например:
+```bash
+127.0.0.1       localhost
+10.0.0.1 gluster1
+10.0.0.2 gluster2
+```
+Запускаем glusterfs.
+
+    • На всех серверах
+```bash    
+systemctl start glusterd.service
+systemctl enable glusterd.service
+```
+Связываем ноды.
+Не имеет значения, какой из узлов вы будете использовать, но в следующем примере команда запускается на gluster1:
+```bash
+gluster peer probe gluster2
+```
+Фактически эта команда сообщает `gluster1` доверять `gluster2` и регистрирует его как часть пула хранения данных.
+
+Если зондирование пройдет успешно, вы получите следующий вывод
+```bash
+peer probe: success
+```
+Вы можете проверить связь узлов в любое время путем запуска команды
+```bash
+gluster peer status
+```
+Если вы запустите эту команду из gluster2, вы увидите следующий вывод
+```bash
+Number of Peers: 1
+
+Hostname: gluster1
+Uuid: 7ecfa2d1-3394-4f15-a1f5-bba484f2bbef
+State: Peer in Cluster (Connected)
+```bash
+На этом этапе два ваших сервера взаимодействуют и готовы к созданию томов хранения друг с другом.
 
 
 
