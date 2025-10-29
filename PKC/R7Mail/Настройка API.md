@@ -145,18 +145,17 @@ smtpd_recipient_restrictions = permit_sasl_authenticated,
 
 Ниже добавить:
 ```bash
-# Подключаем postfwd и разрешаем отправку только авторизированным пользователям.
-# Подключаем белый/черный список.
-smtpd_recipient_restrictions = permit_mynetworks,
-check_policy_service inet:127.0.0.1:10040,
-permit_sasl_authenticated,
-reject_unauth_destination,
-check_sender_access hash:/etc/postfix/access,
-reject_non_fqdn_helo_hostname,
-reject_non_fqdn_sender,
-reject_non_fqdn_recipient,
-reject_unknown_recipient_domain,
-reject_unknown_sender_domain
+# Подключаем postfwd и разрешаем отправку только авторизированным пользователям. Подключаем белый/черный список.
+ smtpd_recipient_restrictions = permit_mynetworks,
+ check_policy_service inet:127.0.0.1:10040,
+ permit_sasl_authenticated,
+ reject_unauth_destination,
+ check_sender_access hash:/etc/postfix/access,
+ reject_non_fqdn_helo_hostname,
+ reject_non_fqdn_sender,
+ reject_non_fqdn_recipient,
+ reject_unknown_recipient_domain,
+ reject_unknown_sender_domain
 
 # Подключаем postfwd
 smtpd_end_of_data_restrictions = check_policy_service inet:127.0.0.1:10040
@@ -185,12 +184,12 @@ apt install dovecot-ldap slapd ldap-utils libldap2-dev
  
 Содержимое:
 ```bash
-hosts = 192.168.26.199:389
+hosts = IP адрес LDAP ALDPRO:389
 ldap_version = 3
 auth_bind = yes
-dn = uid=vmail,cn=users,cn=accounts,dc=aldbuilder,dc=r7,dc=loc
-dnpass = password
-base= cn=users,cn=accounts,dc=aldbuilder,dc=r7,dc=loc
+dn = uid=vmail,cn=users,cn=accounts,dc=urrca,dc=esk
+dnpass = ****** пароль на авторизацию LDAP
+base= cn=users,cn=accounts,dc=urrca,dc=esk
 scope = subtree
 deref = never
 user_filter = (&(mail=%u)(objectClass=person))
