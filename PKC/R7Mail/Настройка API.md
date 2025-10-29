@@ -158,7 +158,7 @@ smtpd_recipient_restrictions = permit_sasl_authenticated,
  reject_unknown_sender_domain
 
 # Подключаем postfwd
-smtpd_end_of_data_restrictions = check_policy_service inet:127.0.0.1:10040
+ smtpd_end_of_data_restrictions = check_policy_service inet:127.0.0.1:10040
 ```
 ![image](https://github.com/user-attachments/assets/91785ea1-e4d9-47aa-9217-c536e5aea2f9)
 
