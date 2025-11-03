@@ -66,7 +66,7 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 <img width="804" height="604" alt="image" src="https://github.com/user-attachments/assets/ecf1a202-5485-4c5c-9e58-b4876fad6384" />
 <img width="1271" height="472" alt="image" src="https://github.com/user-attachments/assets/56ecd3d2-0107-437a-b149-794437b8c1b1" />
 
-Как видим почта работает
+Как видим почта работает!!!
 
 ##### 1.2 Удаление почтовых ящиков
 Удаление почтового ящика (с удалением данных почты):
@@ -80,7 +80,7 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 - https://admin.domain.ru/apimail/delete_user — адрес вызова API.
 - admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
-В исправленном запросе удаляем пользователя `КОМОВ А.Н.` 
+В исправленном запросе удаляем пользователя `komov@rosreestr.ru` 
 
 P.s. незабудьте поменять пароль на admin:
 ```
@@ -94,4 +94,67 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 <img width="1278" height="586" alt="image" src="https://github.com/user-attachments/assets/5468b810-d140-435f-95f4-f4ddf9fa062d" />
 <img width="1281" height="704" alt="image" src="https://github.com/user-attachments/assets/a24b8325-562a-4bba-8619-c77875ddfa42" />
 
-Отправить не удалось, почтового ящика не существует.
+Отправить не удалось, почтового ящика не существует!!!
+
+##### 1.3 Изменение пароля почтового ящика
+
+Изменение пароля почтового ящика:
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d  '{"email":"test@domain.ru","password":"new_password"}' https://admin.domain.ru/apimail/change_password --user admin:PassworD 
+```
+Описание:
+- email — почтовый ящик, для которого изменяется пароль.
+- password — новый пароль для пользователя почтового ящика.
+- https://admin.domain.ru/apimail/change_password — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+В исправленном запросе меняем пароль на пользователя `komarov@rosreestr.ru`
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komarov@rosreestr.ru","password":"123qweasd"}' https://admin.rosreestr.ru/apimail/change_password --user admin:'123Qwerty!123'
+```
+<img width="836" height="108" alt="image" src="https://github.com/user-attachments/assets/0a6ed9c0-0ae2-4a1d-88d8-e9d24807aea1" />
+
+Проверяем. Не даёт отправить, просит сменить пароль. Меняем.
+
+<img width="1131" height="675" alt="image" src="https://github.com/user-attachments/assets/c08257ad-9977-44c0-a2f4-b7e2ba318111" />
+
+Отправляем
+
+<img width="1219" height="256" alt="image" src="https://github.com/user-attachments/assets/1e976e26-f098-44b8-803f-36465ad6f3cf" />
+
+Пришло адресату!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
