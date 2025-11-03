@@ -63,11 +63,11 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 
 <img width="800" height="604" alt="image" src="https://github.com/user-attachments/assets/d60ab6f0-ce94-476b-acb7-ef391ea117f4" />
 <img width="806" height="616" alt="image" src="https://github.com/user-attachments/assets/e4b240b1-7177-4e99-9542-a15f64ddf265" />
-
-
 <img width="804" height="603" alt="image" src="https://github.com/user-attachments/assets/f29a377b-9d72-4c0c-ab11-242009ff7a45" />
 <img width="804" height="604" alt="image" src="https://github.com/user-attachments/assets/ecf1a202-5485-4c5c-9e58-b4876fad6384" />
+<img width="1271" height="472" alt="image" src="https://github.com/user-attachments/assets/56ecd3d2-0107-437a-b149-794437b8c1b1" />
 
+Как видим почта работает
 
 ##### 1.2 Удаление почтовых ящиков
 Удаление почтового ящика (с удалением данных почты):
