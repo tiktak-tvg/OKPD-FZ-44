@@ -48,5 +48,6 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 <img width="2243" height="98" alt="image" src="https://github.com/user-attachments/assets/739c8f69-bc62-4eec-a8dc-dde05925c8ec" />
 
 <img width="899" height="856" alt="image" src="https://github.com/user-attachments/assets/bb445f9c-a5a1-4976-ad44-2433dca9d633" />
+<img width="903" height="857" alt="image" src="https://github.com/user-attachments/assets/44753467-709d-4deb-a564-40ed2d783dd8" />
 
 
