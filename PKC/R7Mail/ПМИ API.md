@@ -35,18 +35,18 @@
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <твой_JWT_токен>" -d '{"email":"test@domain.ru","password":"mail_password"}' https://admin.domain.ru/apimail/create_user --user admin:PassworD 
 ```
 Описание:
-email — почтовый ящик для создания пользователя.
-password — пароль для пользователя почтового ящика.
-https://admin.domain.ru/apimail/create_user — адрес вызова API.
-admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+- email — почтовый ящик для создания пользователя.
+- password — пароль для пользователя почтового ящика.
+- https://admin.domain.ru/apimail/create_user — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
-Исправленный запрос:
+В исправленном запросе добавляем пользователя `КОМОВ А.Н.`:
 ```
 #!/bin/bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komov@rosreestr.ru","password":"Qwerty5+"}' https://admin.rosreestr.ru/apimail/create_user --user admin:ПАРОЛЬ
 ```
+Теперь созданого пользователя `КОМОВ А.Н.` нужно добавить в админку
 <img width="2243" height="98" alt="image" src="https://github.com/user-attachments/assets/739c8f69-bc62-4eec-a8dc-dde05925c8ec" />
-
 <img width="899" height="856" alt="image" src="https://github.com/user-attachments/assets/bb445f9c-a5a1-4976-ad44-2433dca9d633" />
 <img width="903" height="857" alt="image" src="https://github.com/user-attachments/assets/44753467-709d-4deb-a564-40ed2d783dd8" />
 <img width="1574" height="568" alt="image" src="https://github.com/user-attachments/assets/e501a369-45a0-46a2-adbd-87bc340dd0ea" />
