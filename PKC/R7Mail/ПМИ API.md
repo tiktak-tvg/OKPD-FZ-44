@@ -53,12 +53,13 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 <img width="899" height="856" alt="image" src="https://github.com/user-attachments/assets/bb445f9c-a5a1-4976-ad44-2433dca9d633" />
 <img width="903" height="857" alt="image" src="https://github.com/user-attachments/assets/44753467-709d-4deb-a564-40ed2d783dd8" />
 <img width="1574" height="568" alt="image" src="https://github.com/user-attachments/assets/e501a369-45a0-46a2-adbd-87bc340dd0ea" />
-
-**Проверим, пользователей на почтовом клиенте**
+<br>
+**Проверим, пользователей на почтовом клиенте**<br>
 <img width="1278" height="208" alt="image" src="https://github.com/user-attachments/assets/51b5d053-9e89-4a41-94e6-9ce830258c36" />
 <img width="802" height="605" alt="image" src="https://github.com/user-attachments/assets/618bca0b-fd6f-4ebf-a128-a9816195f56f" />
 <img width="804" height="616" alt="image" src="https://github.com/user-attachments/assets/ec8897d7-a22a-430a-9e89-97949126ea98" />
 <img width="804" height="603" alt="image" src="https://github.com/user-attachments/assets/f29a377b-9d72-4c0c-ab11-242009ff7a45" />
+<img width="804" height="604" alt="image" src="https://github.com/user-attachments/assets/ecf1a202-5485-4c5c-9e58-b4876fad6384" />
 
 
 ##### 1.2 Удаление почтовых ящиков
