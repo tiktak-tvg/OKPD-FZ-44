@@ -85,5 +85,14 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 
 P.s. незабудьте поменять пароль на admin:
 ```
-
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komov@rosreestr.ru","password":"123QWEasd"}' https://admin.rosreestr.ru/apimail/delete_user --user admin:'123Qwerty!123'
 ```
+<img width="2243" height="90" alt="image" src="https://github.com/user-attachments/assets/241da65a-ad60-4216-8acc-37e645f57380" />
+
+Проверяем, что ящик удалён. Попробуем послать на него письмо.
+
+<img width="1278" height="586" alt="image" src="https://github.com/user-attachments/assets/5468b810-d140-435f-95f4-f4ddf9fa062d" />
+<img width="1281" height="704" alt="image" src="https://github.com/user-attachments/assets/a24b8325-562a-4bba-8619-c77875ddfa42" />
+
+Отправить не удалось, почтового ящика не существует.
