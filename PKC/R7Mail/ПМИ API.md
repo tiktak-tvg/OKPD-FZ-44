@@ -16,14 +16,31 @@
 
 <img width="1578" height="387" alt="image" src="https://github.com/user-attachments/assets/253e1dcb-fe56-47c7-b9b6-cd283fa7a0d8" />
 
-Создание почтового ящика через CURL запрос:
+<img width="1563" height="580" alt="image" src="https://github.com/user-attachments/assets/8e5b0b97-6bab-479f-82ae-444d62521e7d" />
+
+<img width="1575" height="430" alt="image" src="https://github.com/user-attachments/assets/8e5c8b1b-653a-4c60-9ff9-30eba04f2a93" />
+
+<img width="1573" height="768" alt="image" src="https://github.com/user-attachments/assets/15d2e7ab-7dd2-472c-8343-f211e29b1e77" />
+
+<img width="1573" height="326" alt="image" src="https://github.com/user-attachments/assets/5c6bf746-ef13-4d6e-9f56-e61661ee9514" />
+
+<img width="1579" height="546" alt="image" src="https://github.com/user-attachments/assets/c7768a79-9a6b-42ac-a9e5-8aaa7923cc9a" />
+
+<img width="677" height="466" alt="image" src="https://github.com/user-attachments/assets/ad47dfdb-3a8b-4b51-8331-ea44ebf442df" />
+
+##### Создание почтового ящика через CURL запрос:
+
 Исправьте запрос в соответствии с параметрами вашего сервера:
-
+```
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <твой_JWT_токен>" -d '{"email":"test@domain.ru","password":"mail_password"}' https://admin.domain.ru/apimail/create_user --user admin:PassworD 
-
+```
 Описание:
 email — почтовый ящик для создания пользователя.
 password — пароль для пользователя почтового ящика.
 https://admin.domain.ru/apimail/create_user — адрес вызова API.
 admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
+Исправленный запрос:
+```
+
+```
