@@ -40,15 +40,42 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <твой_
 - https://admin.domain.ru/apimail/create_user — адрес вызова API.
 - admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
-В исправленном запросе добавляем пользователя `КОМОВ А.Н.`:
+В исправленном запросе добавляем пользователя `КОМОВ А.Н.` 
+
+##### P.s. незабудьте поменять пароль на admin:
 ```
 #!/bin/bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komov@rosreestr.ru","password":"Qwerty5+"}' https://admin.rosreestr.ru/apimail/create_user --user admin:ПАРОЛЬ
 ```
-Теперь созданого пользователя `КОМОВ А.Н.` нужно добавить в админку
+
 <img width="2243" height="98" alt="image" src="https://github.com/user-attachments/assets/739c8f69-bc62-4eec-a8dc-dde05925c8ec" />
+**Теперь созданого пользователя КОМОВ А.Н. нужно добавить в админку**
 <img width="899" height="856" alt="image" src="https://github.com/user-attachments/assets/bb445f9c-a5a1-4976-ad44-2433dca9d633" />
 <img width="903" height="857" alt="image" src="https://github.com/user-attachments/assets/44753467-709d-4deb-a564-40ed2d783dd8" />
 <img width="1574" height="568" alt="image" src="https://github.com/user-attachments/assets/e501a369-45a0-46a2-adbd-87bc340dd0ea" />
 
+**Проверим, пользователей на почтовом клиенте**
+<img width="1278" height="208" alt="image" src="https://github.com/user-attachments/assets/51b5d053-9e89-4a41-94e6-9ce830258c36" />
+<img width="802" height="605" alt="image" src="https://github.com/user-attachments/assets/618bca0b-fd6f-4ebf-a128-a9816195f56f" />
+<img width="804" height="616" alt="image" src="https://github.com/user-attachments/assets/ec8897d7-a22a-430a-9e89-97949126ea98" />
+<img width="804" height="603" alt="image" src="https://github.com/user-attachments/assets/f29a377b-9d72-4c0c-ab11-242009ff7a45" />
 
+
+##### 1.2 Удаление почтовых ящиков
+Удаление почтового ящика (с удалением данных почты):
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"email":"test@domain.ru"}' https://admin.domain.ru/apimail/delete_user --user admin:PassworD
+```
+Описание:
+- email — почтовый ящик для удаления.
+- https://admin.domain.ru/apimail/delete_user — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+В исправленном запросе удаляем пользователя `КОМОВ А.Н.` 
+
+P.s. незабудьте поменять пароль на admin:
+```
+
+```
