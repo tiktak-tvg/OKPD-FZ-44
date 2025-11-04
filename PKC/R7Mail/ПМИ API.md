@@ -113,7 +113,7 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 В исправленном запросе меняем пароль на пользователя `komarov@rosreestr.ru`
 ```
 #!/bin/bash
-curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komarov@rosreestr.ru","password":"123qweasd"}' https://admin.rosreestr.ru/apimail/change_password --user admin:'123Qwerty!123'
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"komarov@rosreestr.ru","password":"123qweasd"}' https://admin.rosreestr.ru/apimail/change_password --user admin:'ПАРОЛЬ'
 ```
 <img width="836" height="108" alt="image" src="https://github.com/user-attachments/assets/0a6ed9c0-0ae2-4a1d-88d8-e9d24807aea1" />
 
@@ -127,29 +127,95 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 
 Пришло адресату!!!
 
+#### 1.4 Изменение имени почтового ящика
 
+Изменение имени почтового ящика (с копированием директории с почтовыми данными):
 
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"old_email":"test@domain.ru","new_email":"test2@domain.ru"}' https://admin.domain.ru/apimail/change_email --user admin:PassworD
+```
+Описание:
+- old_email — текущий почтовый ящик.
+- new_email — новое имя почтового ящика.
+- https://admin.domain.ru/apimail/change_email — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
+В исправленном запросе меняем имя пользователя `komarov@rosreestr.ru` на `komarovAA@rosreestr.ru`
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"old_email":"komarov@rosreestr.ru","new_email":"komarovAA@rosreestr.ru"}' https://admin.rosreestr.ru/apimail/change_email --user admin:'ПАРОЛЬ'
+```
 
+<img width="954" height="112" alt="image" src="https://github.com/user-attachments/assets/265670d1-52dd-45c3-9531-2a5c84e8207d" />
 
+Проверяем. Не работает
 
+<img width="3440" height="1440" alt="image" src="https://github.com/user-attachments/assets/7089e158-8ee1-4e3c-b012-9a8ff8299aa9" />
 
+Добавляем пользователя с новым именем
 
+<img width="901" height="857" alt="image" src="https://github.com/user-attachments/assets/db9c4434-df60-4156-bdc8-63b9f74daa6a" />
 
+<img width="899" height="510" alt="image" src="https://github.com/user-attachments/assets/e0bb69c7-81fa-4fee-b2a3-b23617e472fa" />
 
+Проверяем. Работает
 
+<img width="1151" height="411" alt="image" src="https://github.com/user-attachments/assets/3c725f78-fc35-40bb-bf57-58860635429f" />
 
+<img width="1283" height="475" alt="image" src="https://github.com/user-attachments/assets/53f3d19e-94c1-4599-8f62-43649401758a" />
 
+#### 1.5 Отправка почтового сообщения
 
+1. Перейти в модуль Р7-почта
+2. Нажать на кнопку «Создать сообщение»
+3. Ввести адресата в поле «Кому», ввести тему письма и сообщение
+4. Нажать отправить.
 
+#### 1.6 Получение почтового сообщения
 
+1. Перейти в модуль Р7-почта
+2. Нажать на кнопку «Создать сообщение»
+3. Ввести собственный email в поле «Кому», ввести тему письма и сообщение
+4. Нажать отправить.
 
+#### 1.7 Настройки квоты почтового ящика
 
+Установка квоты для почтового ящика:
 
+Метод позволяет установить квоту (ограничение на объем хранилища) для указанного почтового ящика.
 
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"email":"user@domain.ru","quota":1024}' https://admin.domain.ru/apimail/set_quota --user admin:PassworD
+```
+Описание:
+- email — почтовый ящик, для которого устанавливается квота.
+- quota — квота в мегабайтах (MB). Должна быть положительным числом.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+- Адрес вызова API:https://admin.domain.ru/apimail/set_quota
 
+В исправленном запросе меняем квоту на пользователя r7info@rosreestr.ru
 
+Сначала проверим какая квота есть
+```
+doveadm quota get -u r7info@rosreestr.ru
+sh: /usr/sbin/astrase-fix-maildir: Нет такого файла или каталога
+Quota name Type    Value Limit                                                                                                             %
+User quota STORAGE     0     -                                                                                                             0
+User quota MESSAGE     0     - 
+```
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"r7info@rosreestr.ru","quota":1024}' https://admin.rosreestr.ru/apimail/set_quota --user admin:'123Qwerty!123'
+```
+<img width="822" height="90" alt="image" src="https://github.com/user-attachments/assets/944e7163-2f63-40a7-b10f-edc92057dd80" />
 
+<img width="825" height="198" alt="image" src="https://github.com/user-attachments/assets/48a8681b-e025-4bd8-ad70-e83373750fef" />
+
+<img width="818" height="290" alt="image" src="https://github.com/user-attachments/assets/58d0d52c-4466-4420-8997-7acfe65119f5" />
+
+Квота дбавилась!!!
 
 
 
