@@ -308,9 +308,20 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 2. В поле «Email для создания» указать атрибут из LDAP который указывает на email пользователя или группы.
 3. Нажать сохранить и синхронизировать
 
+<img width="1418" height="881" alt="image" src="https://github.com/user-attachments/assets/281511b6-75ad-41ae-9124-08eb23183ee9" />
+
+<img width="1538" height="1090" alt="image" src="https://github.com/user-attachments/assets/db348c54-8cc7-4fca-86ef-6599a025f277" />
+
+<img width="1447" height="739" alt="image" src="https://github.com/user-attachments/assets/ba954914-64b6-4758-93c1-649972936008" />
+
 #### 1.12	Журналирование почтового трафика и журналов событий
 1.Ввести в консоли cat /var/log/mail.log
+
+<img width="2057" height="722" alt="image" src="https://github.com/user-attachments/assets/7226291f-063e-4674-82ee-d0155159b34e" />
+
 2. Перейти в папку /var/log/dovecot, и открыть нужный лог.
+
+<img width="1271" height="888" alt="image" src="https://github.com/user-attachments/assets/a0f57178-7082-4994-b9d5-54f71e3ca3a8" />
 
 Убедиться что события логируются 
 
