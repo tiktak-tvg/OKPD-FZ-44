@@ -258,10 +258,18 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 - https://admin.domain.ru/apimail/create_alias_multy — адрес вызова API.
 - admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
+В исправленном запросе проверка работы пересылкы (alias) с потового адреса ``test55mx1@rosreestr.ru`` на почтовый адрес ``test55mx2@rosreestr.ru`` и ``test55mx3@rosreestr.ru``
+
+Письмо при отправке на ``test55mx1@rosreestr.ru`` придёт на ``test55mx2@rosreestr.ru`` и ``test55mx3@rosreestr.ru``
 ```
 #!/bin/bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"source":"test55mx1@rosreestr.ru","destinations":["test55mx2@rosreestr.ru", "test55mx3@rosreestr.ru"]}' https://admin.rosreestr.ru/apimail/create_alias_multy --user admin:'ПАРОЛЬ'
 ```
+<img width="1263" height="110" alt="image" src="https://github.com/user-attachments/assets/23c1aafe-5e5c-4b7f-bc06-e84a26d5b51e" />
+
+<img width="1282" height="421" alt="image" src="https://github.com/user-attachments/assets/b796e4b6-ed8c-479b-9509-d67455a88b4a" />
+
+<img width="1280" height="788" alt="image" src="https://github.com/user-attachments/assets/2dbbff06-d161-4809-8425-bd1d6011b63b" />
 
 #### 1.10	Создание и удаление почтовых доменов
 
