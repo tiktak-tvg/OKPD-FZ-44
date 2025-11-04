@@ -231,10 +231,18 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 - https://admin.domain.ru/apimail/create_alias — адрес вызова API.
 - admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
 
+В исправленном запросе проверка работы пересылкы (alias) с потового адреса ``test55mx1@rosreestr.ru`` на почтовый адрес ``test55mx2@rosreestr.ru``
+
+Письмо при отправке на ``test55mx1@rosreestr.ru`` придёт на ``test55mx2@rosreestr.ru``
 ```
 #!/bin/bash
 curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"alias":"test55mx1@rosreestr.ru","email":"test55mx2@rosreestr.ru"}' https://admin.rosreestr.ru/apimail/create_alias --user admin:'ПАРОЛЬ'
 ```
+<img width="902" height="129" alt="image" src="https://github.com/user-attachments/assets/ce50dbd1-ee3b-40a4-a447-afd0b7305d9e" />
+
+<img width="863" height="397" alt="image" src="https://github.com/user-attachments/assets/9d1c123e-5518-4eb7-b102-d20750891863" />
+
+<img width="1281" height="590" alt="image" src="https://github.com/user-attachments/assets/8721ef99-1a17-4b28-983a-5907753d8d3a" />
 
 #### 1.9	Настройка параметров переадресации почтового ящика
 
