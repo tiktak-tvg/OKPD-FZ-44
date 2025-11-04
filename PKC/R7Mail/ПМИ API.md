@@ -207,7 +207,7 @@ User quota MESSAGE     0     -
 ```
 ```
 #!/bin/bash
-curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"r7info@rosreestr.ru","quota":1024}' https://admin.rosreestr.ru/apimail/set_quota --user admin:'123Qwerty!123'
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"email":"r7info@rosreestr.ru","quota":1024}' https://admin.rosreestr.ru/apimail/set_quota --user admin:'ПАРОЛЬ'
 ```
 <img width="822" height="90" alt="image" src="https://github.com/user-attachments/assets/944e7163-2f63-40a7-b10f-edc92057dd80" />
 
@@ -215,7 +215,223 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOi
 
 <img width="818" height="290" alt="image" src="https://github.com/user-attachments/assets/58d0d52c-4466-4420-8997-7acfe65119f5" />
 
-Квота дбавилась!!!
+Квота добавилась!!!
+
+#### 1.8 Настройки псевдонима (alias) почтового ящика 
+
+Создание нового алиаса
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"alias":"news@domain.ru","email":"user@domain.ru"}' https://admin.domain.ru/apimail/create_alias --user admin:PassworD
+```
+Описание:
+- alias — адрес алиаса (например, news@domain.ru).
+- email — основной почтовый ящик, на который будет перенаправляться почта.
+- https://admin.domain.ru/apimail/create_alias — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"alias":"test55mx1@rosreestr.ru","email":"test55mx2@rosreestr.ru"}' https://admin.rosreestr.ru/apimail/create_alias --user admin:'ПАРОЛЬ'
+```
+
+#### 1.9	Настройка параметров переадресации почтового ящика
+
+Создание алиаса с несколькими получателями
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"source":"news_users@domain.ru","destinations":"user3@domain.ru,user4@domain.ru"}' https://admin.domain.ru/apimail/create_alias_multy --user admin:PassworD
+```
+Описание:
+- source — адрес алиаса (например, news_users@domain.ru).
+- destinations — список получателей, разделенных запятой (например, user3@domain.ru,user4@domain.ru).
+- https://admin.domain.ru/apimail/create_alias_multy — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"source":"test55mx1@rosreestr.ru","destinations":["test55mx2@rosreestr.ru", "test55mx3@rosreestr.ru"]}' https://admin.rosreestr.ru/apimail/create_alias_multy --user admin:'ПАРОЛЬ'
+```
+
+#### 1.10	Создание и удаление почтовых доменов
+
+Создание нового домена (c генерацией ключа opendkim)
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"name":"new-domain.ru"}' https://admin.domain.ru/apimail/create_domain --user admin:PassworD
+```
+Описание:
+- name — имя нового домена (например, new-domain.ru).
+- https://admin.domain.ru/apimail/create_domain — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"name":"new-domain.ru"}' https://admin.rosreestr.ru/apimail/create_domain  --user admin:'ПАРОЛЬ'
+```
+Удаление домена (c удалением данных opendkim)
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"name":"domain.ru"}' https://admin.domain.ru/apimail/delete_domain --user admin:PassworD
+```
+Описание:
+- name — имя домена для удаления.
+- https://admin.domain.ru/apimail/delete_domain — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"name":"new-domain.ru"}' https://admin.rosreestr.ru/apimail/delete_domain --user admin:'ПАРОЛЬ'
+```
+#### 1.11	Интеграция со службами каталога с множественным созданием почтовых аккаунтов
+1. Выполнить настройку по инструкции
+- https://support.r7-office.ru/corporate-server2024/settings_cs-r7disk/rekomendacii-po-sinhronizacii-ldap-s-sluzhboj-katalogov-ald-pro/
+2. В поле «Email для создания» указать атрибут из LDAP который указывает на email пользователя или группы.
+3. Нажать сохранить и синхронизировать
+
+#### 1.12	Журналирование почтового трафика и журналов событий
+1.Ввести в консоли cat /var/log/mail.log
+2. Перейти в папку /var/log/dovecot, и открыть нужный лог.
+
+Убедиться что события логируются 
+
+#### 1.13	Просмотр очередей на отправку и прием писем
+
+Просмотр очереди на отправку и прием писем
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer <твой_JWT_токен>" https://admin.domain.ru/apimail/mail_queue --user admin:PassworD
+```
+Консольная команда:
+```
+echo "тело письма" | mail -s "Тема" test@example.ru
+```
+```
+ #!/bin/bash
+ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" https://admin.rosreestr.ru/apimail/mail_queue --user admin:'ПАРОЛЬ'
+```
+
+#### 1.14	Организация списков рассылки это одно и тоже что и в п. 1.9
+
+Создание алиаса с несколькими получателями
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"source":"news_users@domain.ru","destinations":"user3@domain.ru,user4@domain.ru"}' https://admin.domain.ru/apimail/create_alias_multy --user admin:PassworD
+```
+Описание:
+- source — адрес алиаса (например, news_users@domain.ru).
+- destinations — список получателей, разделенных запятой (например, user3@domain.ru,user4@domain.ru).
+- https://admin.domain.ru/apimail/create_alias_multy — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"source":"test55mx1@rosreestr.ru","destinations":["test55mx2@rosreestr.ru", "test55mx3@rosreestr.ru"]}' https://admin.rosreestr.ru/apimail/create_alias_multy --user admin:'ПАРОЛЬ'
+```
+
+#### 1.15	Добавление внешних  адресов в перечень списков рассылки это одно и тоже что и в п. 1.9
+
+Создание алиаса с несколькими получателями
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{"source":"news_users@domain.ru","destinations":"user3@domain.ru,user4@domain.ru"}' https://admin.domain.ru/apimail/create_alias_multy --user admin:PassworD
+```
+Описание:
+- source — адрес алиаса (например, news_users@domain.ru).
+- destinations — список получателей, разделенных запятой (например, user3@domain.ru,user4@domain.ru).
+- https://admin.domain.ru/apimail/create_alias_multy — адрес вызова API.
+- admin:PassworD  - пользователь и пароль созданные в базовой авторизации на веб сервере.
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"source":"test55mx1@rosreestr.ru","destinations":["test55mx2@rosreestr.ru", "test55mx3@rosreestr.ru"]}' https://admin.rosreestr.ru/apimail/create_alias_multy --user admin:'ПАРОЛЬ'
+```
+#### 1.16 Управление черным или белым списком
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+
+Метод добавляет почтовый адрес, домен или ip-адрес в черный или белый список список.
+
+Добавление в черный список
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{
+    "action": "add",
+    "entry": "spam@example.ru",
+    "list_type": "blacklist"
+}' https://admin.domain.ru/apimail/modify_list --user admin:PassworD
+```
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{
+    "action": "add",
+    "entry": "test55mx1@rosreestr.ru",
+    "list_type": "blacklist"
+}' https://admin.rosreestr.ru/apimail/modify_list --user admin:'ПАРОЛЬ'
+```
+
+
+Удаление из белого списка
+```
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой_JWT_токен>" -d '{
+    "action": "remove",
+    "entry": "trusted@example.ru",
+    "list_type": "whitelist"
+}' https://admin.domain.ru/apimail/modify_list --user admin:PassworD
+```
+Описание:
+- action — add (добавить) или remove (удалить).
+- entry — email, домен или IP-адрес.
+- list_type — blacklist (черный список) или whitelist (белый список).
+- Адрес вызова API:https://admin.domain.ru/apimail/modify_list
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{
+    "action": "remove",
+    "entry": "test55mx1@rosreestr.ru",
+    "list_type": "whitelist"
+}' https://admin.rosreestr.ru/apimail/modify_list --user admin:'ПАРОЛЬ'
+```
+
+#### 1.17	Ограничение пользователям отправлять сообщения за пределы организации
+
+Ограничение пользователям отправлять сообщения за пределы организации:
+
+Исправьте запрос в соответствии с параметрами вашего сервера:
+```
+Сurl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <твой_JWT_токен>" -d '{"identifier":"mailbox@domain.ru","id_type":"email","limit": 1,"period":"hour","limit_type":"send"}' https://admin.domain.ru/apimail/set_send_limit --user admin:PassworD
+```
+Описание:
+- identifier — имя почтового ящика, домен.
+- id_type – указываем для чего правила ("email", "domain", "group", "server")
+- limit – количество писем,
+- period – указывается в течение какого периода ("hour", "day", "week")
+- limit_type – указываем тип лимита ("send", "rcpt")
+- user — пользователь, для которого запрашиваются права.
+- admin:PassworD  - пользователь и пароль созданные в пункте 11.2
+- Адрес вызова API:https://admin.domain.ru/apimail/set_send_limit
+
+```
+#!/bin/bash
+curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"identifier":"test55mx3@rosreestr.ru","id_type":"email","limit": 1,"period":"hour","limit_type":"send"}' https://admin.rosreestr.ru/apimail/set_send_limit --user admin:'ПАРОЛЬ'
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
