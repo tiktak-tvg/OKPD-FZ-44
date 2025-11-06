@@ -399,7 +399,9 @@ curl -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer  <твой
 #!/bin/bash
 curl -v -X POST -H "Content-Type: application/json" -H "jwt-auth: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoic3VwZXJhZG1pbkBOb25lIiwic2NvcGVzIjpbImdlbmVyYXRlX3Rva2VuIiwiYXNzaWduX3Njb3BlIiwicmV2b2tlX3Njb3BlIiwibGlzdF9hZG1pbnMiLCJjcmVhdGVfdXNlciIsImNoYW5nZV9wYXNzd29yZCIsImNoYW5nZV9lbWFpbCIsImRlbGV0ZV91c2VyIiwiY3JlYXRlX2FsaWFzIiwiY3JlYXRlX2FsaWFzX211bHR5IiwiY2hhbmdlX2FsaWFzIiwiZGVsZXRlX2FsaWFzIiwiY3JlYXRlX2RvbWFpbiIsImRlbGV0ZV9kb21haW4iLCJjaGVja19lbWFpbCIsIm1haWxib3hfc2l6ZSIsInNldF9xdW90YSIsImNyZWF0ZV9zaGFyZWRfbWFpbGJveCIsImFkZF9hY2wiLCJjaGFuZ2VfYWNsIiwicmVtb3ZlX2FjbCIsImdldF9hY2wiLCJnZXRfbGltaXRzIiwic2V0X3NlbmRfbGltaXQiLCJkZWxldGVfbGltaXQiLCJtb2RpZnlfbGlzdCIsIm1haWxfcXVldWUiXX0.rNEQ3HglhwQfAirn5dNZHWayNVRpWlHDfgrNeKt5vw0" -d '{"action": "remove","entry": "test55mx1@rosreestr.ru", "list_type": "whitelist"}' https://admin.rosreestr.ru/apimail/modify_list --user admin:'ПАРОЛЬ'
 ```
+<img width="1115" height="295" alt="image" src="https://github.com/user-attachments/assets/c23a63c9-d5a0-4a28-b700-91ab06072abc" />
 
+<img width="1220" height="333" alt="image" src="https://github.com/user-attachments/assets/803134e2-f7ef-421f-8673-4004219fe4f5" />
 
 #### 1.17	Ограничение пользователям отправлять сообщения за пределы организации
 
