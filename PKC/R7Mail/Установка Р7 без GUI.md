@@ -48,6 +48,15 @@ $ sudo -i
 ```
 ![image](https://github.com/user-attachments/assets/f97a31ec-cc05-444a-9bbf-9670397f860e)
 
+##### Перезапустить SSH службу для применения изменений:
+######  Для системы с systemd (большинство современных дистрибутивов)
+```bash
+sudo systemctl restart sshd
+```
+##### Проверить, что изменения применились:
+```bash
+sudo sshd -T | grep permitrootlogin
+```
 Если есть доступ к общим папкам по сети, тогда подключаем сетевую общую шару. Выполняем команду:
 ```bash
 mkdir /mnt/myshare
