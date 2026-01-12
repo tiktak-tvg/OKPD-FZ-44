@@ -42,7 +42,10 @@
 Для упрощения в работе временно даём разрешение на подключению по ssh для суперадмина root
 
 Открываем терминал меняем пароль на root и даём разрешение на подключение в файле `/etc/ssh/sshd_config`
-
+```bash
+$ sudo -i
+# sed -i 's/^#*PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+```
 ![image](https://github.com/user-attachments/assets/f97a31ec-cc05-444a-9bbf-9670397f860e)
 
 Если есть доступ к общим папкам по сети, тогда подключаем сетевую общую шару. Выполняем команду:
