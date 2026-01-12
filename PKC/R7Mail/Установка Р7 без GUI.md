@@ -51,16 +51,16 @@ $ sudo -i
 ##### Перезапустить SSH службу для применения изменений:
 ######  Для системы с systemd (большинство современных дистрибутивов)
 ```bash
-sudo systemctl restart sshd
+# systemctl restart sshd
 ```
 ##### Проверить, что изменения применились:
 ```bash
-sudo sshd -T | grep permitrootlogin
+# sshd -T | grep permitrootlogin
 ```
 Если есть доступ к общим папкам по сети, тогда подключаем сетевую общую шару. Выполняем команду:
 ```bash
-mkdir /mnt/myshare
-mount -t cifs //путь до вашей шары  /mnt/myshare –o username=user,password=pass,wr,nounix,iocharset=utf8
+# mkdir /mnt/myshare
+# mount -t cifs //путь до вашей шары  /mnt/myshare –o username=user,password=pass,wr,nounix,iocharset=utf8
 ```
 
 Открываем репозитории `` nano /etc/apt/sources.list`` и комментируем все репозитории
@@ -69,7 +69,7 @@ mount -t cifs //путь до вашей шары  /mnt/myshare –o username=us
 
 Для корректной установки, архив поместить в директории `/mnt`
 ```bash
-cd /mnt
+# cd /mnt
 ```
 Скачайте архив Корпоративный сервер 2024 для установки 
 
@@ -99,9 +99,9 @@ cd /mnt
 
 Распакуйте архив `CDinstall_2.0.2024.14752_Astra_1.7.4_offline.zip`
 ```bash
-cd /mnt
-unzip CDinstall_2.0.2024.14752_Astra_1.7.4_offline.zip
-unzip cddisk.zip
+# cd /mnt
+# unzip CDinstall_2.0.2024.14752_Astra_1.7.4_offline.zip
+# unzip cddisk.zip
 ```
 ![image](https://github.com/user-attachments/assets/d8f008ef-6e3e-4171-9c89-b628d56b03ad)
 
@@ -113,9 +113,9 @@ unzip cddisk.zip
 
 Перейдите в каталог ``cddisk`` и установите пакеты командой ``install.sh``
 ```
-cd cddisk
-chmod +x install.sh
-./install.sh
+# cd cddisk
+# chmod +x install.sh
+# ./install.sh
 ```
 ![image](https://github.com/user-attachments/assets/6f188292-8344-4c91-8724-a3a2ea93e269)
 
@@ -151,9 +151,9 @@ chmod +x install.sh
 Теперь запускаем установку
 
 ```bash
-cd /mnt/CDDiskPack/CDinstall_Astra_1.7.4/
-chmod +x offline-installer.sh
-./offline-installer.sh
+# cd /mnt/CDDiskPack/CDinstall_Astra_1.7.4/
+# chmod +x offline-installer.sh
+# ./offline-installer.sh
 ```
 
 ![image](https://github.com/user-attachments/assets/a3f7c38e-fc38-46b6-94fe-16cac330c3fb)
@@ -431,7 +431,7 @@ coremachinkey от CS.
 **DKIM** — это технология аутентификации электронной почты, которая позволяет проверить, что письмо действительно отправлено от имени домена и не было изменено в процессе доставки. DKIM использует цифровую подпись, чтобы подтвердить подлинность отправителя и целостность содержимого письма.<br>
 DKIM-запись хранится в DNS домена в формате TXT-записи и выглядит примерно так:
 ```bash
-selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC..."
+# selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC..."
 ```
 После инсталляции в консоли будет предложено сделать TXT запись.
 
@@ -453,7 +453,7 @@ selector._domainkey.it.company.lan.  TXT  "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQE
 
 Открываем браузер Мозилла, вводим адрес почтового сервер, чтобы попасть в панель администрации.
 ```bash
-https://admin.it.company.lan
+# https://admin.it.company.lan
 ```
 
 ![image](https://github.com/user-attachments/assets/4ebab8ed-fbfc-4723-a2a0-dbafa6bfbfcc)
