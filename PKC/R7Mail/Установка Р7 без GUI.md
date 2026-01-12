@@ -66,13 +66,12 @@ $ sudo -i
 # mount -t cifs //путь до вашей шары  /mnt/myshare –o username=user,password=pass,wr,nounix,iocharset=utf8
 ```
 
-Открываем репозитории `` nano /etc/apt/sources.list`` и комментируем все репозитории
+Открываем репозитории `` nano /etc/apt/sources.list`` и делаем так:
 
 <img width="1278" height="210" alt="image" src="https://github.com/user-attachments/assets/0263381c-bff4-4a27-8aee-9d15cfe0ee08" />
 
-![image](https://github.com/user-attachments/assets/e96855d8-29ec-4034-8d3e-da9cadd312b1)
-
 ```bash
+# sed -i '/^deb.*cdrom/s/^deb/#deb/' /etc/apt/sources.list
 # sed -i '/repository-main/s/^#//' /etc/apt/sources.list
 # sed -i '/repository-base/s/^#//' /etc/apt/sources.list
 # sed -i '/repository-extended/s/^#//' /etc/apt/sources.list
