@@ -68,8 +68,15 @@ $ sudo -i
 
 Открываем репозитории `` nano /etc/apt/sources.list`` и комментируем все репозитории
 
+<img width="1278" height="210" alt="image" src="https://github.com/user-attachments/assets/0263381c-bff4-4a27-8aee-9d15cfe0ee08" />
+
 ![image](https://github.com/user-attachments/assets/e96855d8-29ec-4034-8d3e-da9cadd312b1)
 
+```bash
+# sed -i '/repository-main/s/^#//' /etc/apt/sources.list
+# sed -i '/repository-base/s/^#//' /etc/apt/sources.list
+# sed -i '/repository-extended/s/^#//' /etc/apt/sources.list
+```
 Для корректной установки, архив поместить в директории `/mnt`
 ```bash
 # cd /mnt
