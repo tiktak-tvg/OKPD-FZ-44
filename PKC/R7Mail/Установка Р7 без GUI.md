@@ -76,7 +76,7 @@ $ sudo -i
 # sed -i '/repository-base/s/^#//' /etc/apt/sources.list
 # sed -i '/repository-extended/s/^#//' /etc/apt/sources.list
 ```
-Для корректной установки, архив поместить в директории `/mnt`
+Для корректной установки почтового сервера весь архив поместить в директории `/mnt` и распоковать их
 ```bash
 # cd /mnt
 ```
