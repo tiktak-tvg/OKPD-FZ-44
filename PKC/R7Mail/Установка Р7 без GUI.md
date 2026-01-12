@@ -49,7 +49,7 @@
 $ sudo -i
 # sed -i 's/^#*PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 ```
-![image](https://github.com/user-attachments/assets/f97a31ec-cc05-444a-9bbf-9670397f860e)
+<img width="1262" height="564" alt="image" src="https://github.com/user-attachments/assets/793d1252-83bc-48c4-baa1-52f988d5add6" />
 
 ##### Перезапустить SSH службу для применения изменений:
 ######  Для системы с systemd (большинство современных дистрибутивов)
